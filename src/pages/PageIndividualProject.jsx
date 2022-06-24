@@ -7,7 +7,7 @@ export default function PageIndividualProject() {
   const { slug } = useParams();
 
   useEffect(() => {
-    document.title = `| ${appTitle}`;
+    document.title = `${slug}| ${appTitle}`;
 
     const params = { acf_format: "standard", slug };
 

@@ -1,6 +1,5 @@
-import { appTitle, aboutPageBaseURL } from "../globals/global";
+import { appTitle, api } from "../globals/global";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 export default function PageAbout() {
   const [aboutContent, setAboutContent] = useState(false);
@@ -9,10 +8,27 @@ export default function PageAbout() {
     document.title = `About ${appTitle} | Front End Developer | UX Desinger`;
 
     const params = { acf_format: "standard" };
-    axios.get(aboutPageBaseURL, { params }).then(response => {
-      setAboutContent(response.data.acf);
-      console.log(response.data.acf);
-    });
+
+    const fetchAboutContent = async () => {
+      try {
+        const response = await api.get("pages/9", {
+          params,
+        });
+        response && response.data && setAboutContent(response.data.acf);
+        console.log(response.data.acf);
+      } catch (err) {
+        if (err.response) {
+          // not in the 200 response rang
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          // all the other errors
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    };
+    fetchAboutContent();
   }, []);
 
   return (

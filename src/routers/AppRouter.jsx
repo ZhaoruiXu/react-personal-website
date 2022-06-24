@@ -23,7 +23,7 @@ function AppRouter() {
           <Routes>
             <Route path='/' element={<PageHome />} />
             <Route path='/about' element={<PageAbout />} />
-            <Route path='/project/:id' element={<PageIndividualProject />} />
+            <Route path='/project/:slug' element={<PageIndividualProject />} />
             <Route path='*' element={<PageHome />} />
           </Routes>
           <Contact />

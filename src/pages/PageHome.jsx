@@ -1,10 +1,12 @@
-import { appTitle, api } from "../globals/global";
+import { appTitle, api, FEATURED, FUN } from "../globals/global";
 import { useEffect, useState } from "react";
 
 export default function PageHome() {
   const [homeAboutContent, setHomeAboutContent] = useState(false);
-  const [homeProjectContent, setHomeProjectContent] = useState([]);
-  const [projectCategory, setProjectCategory] = useState(4);
+  const [homeFeaturedProjectContent, setHomeFeaturedProjectContent] =
+    useState(false);
+  const [homeFunProjectContent, setHomeFunProjectContent] = useState(false);
+  // const [projectCategory, setProjectCategory] = useState(4);
   const [isLoadMore, setIsLoadMore] = useState(false);
 
   useEffect(() => {
@@ -38,21 +40,33 @@ export default function PageHome() {
   }, []);
 
   useEffect(() => {
-    const params_propject = {
+    const params_featured_propject = {
       acf_format: "standard",
-      "fwd-project-category": projectCategory,
+      "fwd-project-category": FEATURED,
+    };
+    const params_fun_propject = {
+      acf_format: "standard",
+      "fwd-project-category": FUN,
     };
     const fetchHomeProjectContent = async () => {
       try {
-        const response_project = await api.get("fwd-project", {
-          params: params_propject,
+        const response_featured_project = await api.get("fwd-project", {
+          params: params_featured_propject,
         });
 
-        response_project &&
-          response_project.data &&
-          setHomeProjectContent(prev => [...prev, ...response_project.data]);
-        console.log("2", response_project.data);
-        console.log("3", homeProjectContent);
+        const response_fun_project = await api.get("fwd-project", {
+          params: params_fun_propject,
+        });
+
+        response_featured_project &&
+          response_featured_project.data &&
+          setHomeFeaturedProjectContent(response_featured_project.data);
+        console.log("2", response_featured_project.data);
+
+        response_fun_project &&
+          response_fun_project.data &&
+          setHomeFunProjectContent(response_fun_project.data);
+        console.log("4", response_fun_project.data);
       } catch (err) {
         if (err.response) {
           // not in the 200 response rang
@@ -66,14 +80,14 @@ export default function PageHome() {
       }
     };
     fetchHomeProjectContent();
-  }, [projectCategory]);
+  }, []);
 
   const handleShowMoreProject = () => {
     if (!isLoadMore) {
-      setProjectCategory(5);
+      // setProjectCategory(5);
     } else {
-      setProjectCategory(4);
-      setHomeProjectContent([]);
+      // setProjectCategory(4);
+      // setHomeProjectContent([]);
     }
     setIsLoadMore(!isLoadMore);
   };
@@ -81,13 +95,23 @@ export default function PageHome() {
   return (
     <section className='home-page'>
       <section className='projects-preview'>
-        {homeProjectContent.map((oneProject, index) => {
-          return (
-            <article key={index} className='project-preview'>
-              <h3>{oneProject.acf.project_title}</h3>
-            </article>
-          );
-        })}
+        {homeFeaturedProjectContent &&
+          homeFeaturedProjectContent.map((oneProject, index) => {
+            return (
+              <article key={index} className='project-preview'>
+                <h3>{oneProject.acf.project_title}</h3>
+              </article>
+            );
+          })}
+        {homeFunProjectContent &&
+          isLoadMore &&
+          homeFunProjectContent.map((oneProject, index) => {
+            return (
+              <article key={index} className='project-preview'>
+                <h3>{oneProject.acf.project_title}</h3>
+              </article>
+            );
+          })}
         <button onClick={handleShowMoreProject}>
           {isLoadMore ? "show less" : "show more"}
         </button>

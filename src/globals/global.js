@@ -9,3 +9,6 @@ export const api = axios.create({
 export const getAlt = URL => {
   return URL.substring(URL.lastIndexOf("/") + 1, URL.lastIndexOf("."));
 };
+
+export const FEATURED = 4;
+export const FUN = 5;

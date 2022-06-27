@@ -1,6 +1,7 @@
 import { appTitle, api, getAlt, FEATURED, FUN } from "../globals/global";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ProjectCard from "../components/ProjectCard";
 
 export default function PageHome() {
   const [homeAboutContent, setHomeAboutContent] = useState(false);
@@ -85,38 +86,7 @@ export default function PageHome() {
       <section className='projects-preview'>
         {displayProjects &&
           displayProjects.map((oneProject, index) => {
-            return (
-              <article key={index} className='project-preview'>
-                {oneProject.acf.preview_page_image && (
-                  <img
-                    src={oneProject.acf.preview_page_image}
-                    alt={getAlt(oneProject.acf.preview_page_image)}
-                  />
-                )}
-                <h3>{oneProject.acf.project_title}</h3>
-                <ul className='project-tools'>
-                  {oneProject.acf.project_tools.map((oneTool, index) => {
-                    return <li key={index}>{oneTool.project_tool}</li>;
-                  })}
-                </ul>
-                <p className='project-description'>
-                  {oneProject.acf.project_preview_description}
-                </p>
-                <ul className='project-links'>
-                  <li>
-                    <a href={oneProject.acf.links[0].live_site_link}>
-                      Live Site
-                    </a>
-                  </li>
-
-                  {oneProject["fwd-project-category"][0] === FEATURED && (
-                    <li>
-                      <Link to={`/project/${oneProject.slug}`}>Learn More</Link>
-                    </li>
-                  )}
-                </ul>
-              </article>
-            );
+            return <ProjectCard key={index} data={oneProject} />;
           })}
 
         <button onClick={handleShowMoreProject}>

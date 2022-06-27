@@ -4,38 +4,25 @@ import { Link } from "react-router-dom";
 
 export default function PageHome() {
   const [homeAboutContent, setHomeAboutContent] = useState(false);
-  const [homeFeaturedProjectContent, setHomeFeaturedProjectContent] =
-    useState(false);
-  const [homeFunProjectContent, setHomeFunProjectContent] = useState(false);
+  const [homeProjectContent, setHomeProjectContent] = useState(false);
   const [displayProjects, setDisplayProjects] = useState(false);
+
   // const [projectCategory, setProjectCategory] = useState(4);
   const [isLoadMore, setIsLoadMore] = useState(false);
 
   useEffect(() => {
     document.title = `${appTitle} | Front End Developer | UX Desinger`;
 
-    const params_about = { acf_format: "standard" };
-    const params_featured_propject = {
-      acf_format: "standard",
-      "fwd-project-category": FEATURED,
-    };
-    const params_fun_propject = {
-      acf_format: "standard",
-      "fwd-project-category": FUN,
-    };
+    const params = { acf_format: "standard" };
 
     const fetchHomeContent = async () => {
       try {
         const response_about = await api.get("pages/9", {
-          params: params_about,
+          params,
         });
 
-        const response_featured_project = await api.get("fwd-project", {
-          params: params_featured_propject,
-        });
-
-        const response_fun_project = await api.get("fwd-project", {
-          params: params_fun_propject,
+        const response_project = await api.get("fwd-project", {
+          params,
         });
 
         response_about &&
@@ -43,16 +30,14 @@ export default function PageHome() {
           setHomeAboutContent(response_about.data.acf);
         console.log("1", response_about.data.acf);
 
-        if (response_featured_project && response_featured_project.data) {
-          setHomeFeaturedProjectContent(response_featured_project.data);
-          setDisplayProjects(response_featured_project.data);
-          console.log("2", response_featured_project.data);
+        if (response_project && response_project.data) {
+          setHomeProjectContent(response_project.data);
+          console.log("4", response_project.data);
+          const filteredProjects = response_project.data.filter(
+            oneProject => oneProject["fwd-project-category"][0] === FEATURED
+          );
+          setDisplayProjects(filteredProjects);
         }
-
-        response_fun_project &&
-          response_fun_project.data &&
-          setHomeFunProjectContent(response_fun_project.data);
-        console.log("4", response_fun_project.data);
       } catch (err) {
         if (err.response) {
           // not in the 200 response rang
@@ -71,10 +56,17 @@ export default function PageHome() {
 
   const handleShowMoreProject = () => {
     if (!isLoadMore) {
-      // if not showing more
-      setDisplayProjects(prev => [...prev, ...homeFunProjectContent]);
+      // to show more (add fun projects)
+      const filteredProjects = homeProjectContent.filter(
+        oneProject => oneProject["fwd-project-category"][0] === FUN
+      );
+      setDisplayProjects(prev => [...prev, ...filteredProjects]);
     } else {
-      setDisplayProjects(homeFeaturedProjectContent);
+      // to show less (only featured projects)
+      const filteredProjects = homeProjectContent.filter(
+        oneProject => oneProject["fwd-project-category"][0] === FEATURED
+      );
+      setDisplayProjects(filteredProjects);
     }
     setIsLoadMore(!isLoadMore);
     console.log("haha", displayProjects);

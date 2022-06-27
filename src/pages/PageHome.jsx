@@ -86,7 +86,7 @@ export default function PageHome() {
         <section className='about'>
           <h2>{homeAboutContent.about_opening_sentence_header}</h2>
           <p>{homeAboutContent.about_my_title}</p>
-          <Link></Link>
+          <Link to='/about'>About Me</Link>
         </section>
       )}
 

@@ -6,6 +6,7 @@ export default function PageHome() {
   const [homeFeaturedProjectContent, setHomeFeaturedProjectContent] =
     useState(false);
   const [homeFunProjectContent, setHomeFunProjectContent] = useState(false);
+  const [displayProjects, setDisplayProjects] = useState(false);
   // const [projectCategory, setProjectCategory] = useState(4);
   const [isLoadMore, setIsLoadMore] = useState(false);
 
@@ -58,10 +59,11 @@ export default function PageHome() {
           params: params_fun_propject,
         });
 
-        response_featured_project &&
-          response_featured_project.data &&
+        if (response_featured_project && response_featured_project.data) {
           setHomeFeaturedProjectContent(response_featured_project.data);
-        console.log("2", response_featured_project.data);
+          setDisplayProjects(response_featured_project.data);
+          console.log("2", response_featured_project.data);
+        }
 
         response_fun_project &&
           response_fun_project.data &&
@@ -84,25 +86,28 @@ export default function PageHome() {
 
   const handleShowMoreProject = () => {
     if (!isLoadMore) {
-      // setProjectCategory(5);
+      // if not showing more
+      setDisplayProjects(prev => [...prev, ...homeFunProjectContent]);
     } else {
-      // setProjectCategory(4);
-      // setHomeProjectContent([]);
+      setDisplayProjects(homeFeaturedProjectContent);
     }
     setIsLoadMore(!isLoadMore);
+    console.log("haha", displayProjects);
   };
 
   return (
     <section className='home-page'>
       <section className='projects-preview'>
-        {homeFeaturedProjectContent &&
-          homeFeaturedProjectContent.map((oneProject, index) => {
+        {displayProjects &&
+          displayProjects.map((oneProject, index) => {
             return (
               <article key={index} className='project-preview'>
-                <img
-                  src={oneProject.acf.preview_page_image}
-                  alt={getAlt(oneProject.acf.preview_page_image)}
-                />
+                {oneProject.acf.preview_page_image && (
+                  <img
+                    src={oneProject.acf.preview_page_image}
+                    alt={getAlt(oneProject.acf.preview_page_image)}
+                  />
+                )}
                 <h3>{oneProject.acf.project_title}</h3>
                 <ul className='project-tools'>
                   {oneProject.acf.project_tools.map((oneTool, index) => {
@@ -112,15 +117,7 @@ export default function PageHome() {
               </article>
             );
           })}
-        {homeFunProjectContent &&
-          isLoadMore &&
-          homeFunProjectContent.map((oneProject, index) => {
-            return (
-              <article key={index} className='project-preview'>
-                <h3>{oneProject.acf.project_title}</h3>
-              </article>
-            );
-          })}
+
         <button onClick={handleShowMoreProject}>
           {isLoadMore ? "show less" : "show more"}
         </button>

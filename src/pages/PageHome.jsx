@@ -1,4 +1,4 @@
-import { appTitle, api, FEATURED, FUN } from "../globals/global";
+import { appTitle, api, getAlt, FEATURED, FUN } from "../globals/global";
 import { useEffect, useState } from "react";
 
 export default function PageHome() {
@@ -99,7 +99,16 @@ export default function PageHome() {
           homeFeaturedProjectContent.map((oneProject, index) => {
             return (
               <article key={index} className='project-preview'>
+                <img
+                  src={oneProject.acf.preview_page_image}
+                  alt={getAlt(oneProject.acf.preview_page_image)}
+                />
                 <h3>{oneProject.acf.project_title}</h3>
+                <ul className='project-tools'>
+                  {oneProject.acf.project_tools.map((oneTool, index) => {
+                    return <li key={index}>{oneTool.project_tool}</li>;
+                  })}
+                </ul>
               </article>
             );
           })}

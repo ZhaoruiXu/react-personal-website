@@ -14,16 +14,21 @@ export default function PageHome() {
   useEffect(() => {
     document.title = `${appTitle} | Front End Developer | UX Desinger`;
 
-    const params = { acf_format: "standard" };
+    const params_about = { acf_format: "standard" };
+    const params_project = {
+      acf_format: "standard",
+      orderby: "menu_order",
+      order: "desc",
+    };
 
     const fetchHomeContent = async () => {
       try {
         const response_about = await api.get("pages/9", {
-          params,
+          params: params_about,
         });
 
         const response_project = await api.get("fwd-project", {
-          params,
+          params: params_project,
         });
 
         response_about &&

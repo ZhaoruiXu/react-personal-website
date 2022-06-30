@@ -1,4 +1,4 @@
-import { appTitle, api, getAlt, FEATURED, FUN } from "../globals/global";
+import { appTitle, api, FEATURED, FUN } from "../globals/global";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";

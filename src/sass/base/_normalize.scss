@@ -376,6 +376,12 @@ html {
   box-sizing: inherit;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
   border: 0;

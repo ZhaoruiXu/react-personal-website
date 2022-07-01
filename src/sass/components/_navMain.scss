@@ -1,0 +1,25 @@
+.main-nav {
+  position: fixed;
+  right: 0.75rem;
+  top: 1.125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $black;
+  border-radius: 2rem;
+  padding: 0.25rem;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 10rem;
+    li {
+      a {
+        color: $white;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@import "../components/menuBtn";

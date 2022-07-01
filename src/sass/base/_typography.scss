@@ -13,13 +13,15 @@ p {
   padding: 0;
 }
 
-h1 {
-  font-weight: 600;
-  font-size: 1.5rem;
+h1,
+h2 {
   font-family: $font-large-text;
 }
 
-a,
+a {
+  font-family: $font-small-text;
+  text-decoration: none;
+}
 button {
   font-family: $font-small-text;
 }

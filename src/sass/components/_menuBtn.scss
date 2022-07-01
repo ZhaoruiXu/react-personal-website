@@ -1,0 +1,17 @@
+.menu-button {
+  padding: 19px 1rem;
+  border: 0;
+  border-radius: 5rem;
+  background-color: $white;
+
+  .bar {
+    background-color: $black;
+    width: 1.125rem;
+    height: 0.125rem;
+    border-radius: 0.25rem;
+    transition: transform 0.5s, background-color 0.15s;
+  }
+  .bar1 {
+    margin-bottom: 0.5rem;
+  }
+}

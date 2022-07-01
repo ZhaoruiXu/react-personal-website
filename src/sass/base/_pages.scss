@@ -1,0 +1,26 @@
+.home-page {
+  .about {
+    margin: 5.625rem 03.5vw;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 25vw;
+      line-height: 100%;
+    }
+    p {
+      color: $light-grey;
+      font-size: 7vw;
+      font-weight: 400;
+      line-height: 100%;
+      text-transform: capitalize;
+      font-family: $font-large-text;
+      margin: 1.25rem 0 1.75rem 0;
+    }
+    a {
+      color: $lightest-grey;
+      border: 1.5px solid $lightest-grey;
+      padding: 0.5rem;
+      text-transform: uppercase;
+    }
+  }
+}

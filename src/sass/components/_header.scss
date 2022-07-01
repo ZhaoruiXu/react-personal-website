@@ -1,0 +1,11 @@
+header {
+  .logo {
+    width: 2.25rem;
+    height: 2.25rem;
+    position: absolute;
+    left: 1rem;
+    top: 1.75rem;
+  }
+}
+
+@import "../components/navMain";

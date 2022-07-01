@@ -1,13 +1,11 @@
-export default function MenuBtn() {
+export default function MenuBtn({ handleMenuBtnClick }) {
   return (
     <button
       className='menu-button'
-      onMouseDown={e => {
-        e.preventDefault();
-      }}
+      onClick={handleMenuBtnClick}
       aria-label='Navigation menu button'>
-      <div className={`bar bar1`}>1</div>
-      <div className={`bar bar2`}>2</div>
+      <div className={`bar bar1`}></div>
+      <div className={`bar bar2`}></div>
     </button>
   );
 }

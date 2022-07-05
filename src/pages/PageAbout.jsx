@@ -15,7 +15,7 @@ export default function PageAbout() {
           params,
         });
         response && response.data && setAboutContent(response.data.acf);
-        console.log(response.data.acf);
+        console.log("about", response.data.acf);
       } catch (err) {
         if (err.response) {
           // not in the 200 response rang

@@ -34,11 +34,11 @@ export default function PageHome() {
         response_about &&
           response_about.data &&
           setHomeAboutContent(response_about.data.acf);
-        console.log("1", response_about.data.acf);
+        console.log("about", response_about.data.acf);
 
         if (response_project && response_project.data) {
           setHomeProjectContent(response_project.data);
-          console.log("4", response_project.data);
+          console.log("project", response_project.data);
           const filteredProjects = response_project.data.filter(
             oneProject => oneProject["fwd-project-category"][0] === FEATURED
           );
@@ -82,21 +82,22 @@ export default function PageHome() {
     <section className='home-page'>
       {homeAboutContent && (
         <section className='about'>
-          <h2>{homeAboutContent.about_opening_sentence_header}</h2>
+          {homeAboutContent.about_opening_sentence_header_repeater.map(
+            (header, index) => {
+              return <h2 key={index}>{header.item}</h2>;
+            }
+          )}
           {/* <p>{homeAboutContent.about_opening_sentence_paragraph}</p> */}
           <div id='flip'>
-            <div>
-              <p>A Self Starter</p>
-            </div>
-            <div>
-              <p>Builds Creative Web</p>
-            </div>
-            <div>
-              <p>Enjoys Nature</p>
-            </div>
-            <div>
-              <p>Likes To Make Friends</p>
-            </div>
+            {homeAboutContent.about_opening_sentence_repeater.map(
+              (sentence, index) => {
+                return (
+                  <div key={index}>
+                    <p>{sentence.item}</p>
+                  </div>
+                );
+              }
+            )}
           </div>
           <Link to='/about'>About Me</Link>
         </section>

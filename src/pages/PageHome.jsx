@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 
+const params_about = { acf_format: "standard" };
+const params_project = {
+  acf_format: "standard",
+  orderby: "menu_order",
+  order: "desc",
+};
+
 export default function PageHome() {
   const [homeAboutContent, setHomeAboutContent] = useState(false);
   const [homeProjectContent, setHomeProjectContent] = useState(false);
@@ -13,13 +20,6 @@ export default function PageHome() {
 
   useEffect(() => {
     document.title = `${appTitle} | Front End Developer | UX Desinger`;
-
-    const params_about = { acf_format: "standard" };
-    const params_project = {
-      acf_format: "standard",
-      orderby: "menu_order",
-      order: "desc",
-    };
 
     const fetchHomeContent = async () => {
       try {
@@ -83,7 +83,21 @@ export default function PageHome() {
       {homeAboutContent && (
         <section className='about'>
           <h2>{homeAboutContent.about_opening_sentence_header}</h2>
-          <p>{homeAboutContent.about_opening_sentence_paragraph}</p>
+          {/* <p>{homeAboutContent.about_opening_sentence_paragraph}</p> */}
+          <div id='flip'>
+            <div>
+              <p>A Self Starter</p>
+            </div>
+            <div>
+              <p>Builds Creative Web</p>
+            </div>
+            <div>
+              <p>Enjoys Nature</p>
+            </div>
+            <div>
+              <p>Likes To Make Friends</p>
+            </div>
+          </div>
           <Link to='/about'>About Me</Link>
         </section>
       )}

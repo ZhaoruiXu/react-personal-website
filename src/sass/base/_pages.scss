@@ -1,26 +1,78 @@
 .home-page {
   .about {
     margin: 5.625rem 03.5vw;
-
     h2 {
       text-transform: uppercase;
       font-size: 25vw;
+      font-weight: 500;
       line-height: 100%;
-    }
-    p {
-      color: $light-grey;
-      font-size: 7vw;
-      font-weight: 400;
-      line-height: 100%;
-      text-transform: capitalize;
-      font-family: $font-large-text;
-      margin: 1.25rem 0 1.75rem 0;
     }
     a {
       color: $lightest-grey;
       border: 1.5px solid $lightest-grey;
-      padding: 0.5rem;
+      padding: 0.75rem 1rem;
       text-transform: uppercase;
+      border-radius: 5.25rem;
+    }
+    #flip {
+      height: 30px;
+      overflow: hidden;
+      line-height: 100%;
+      margin: 1.5rem 0 2rem 0;
+      p {
+        color: $light-grey;
+        font-size: 7vw;
+        font-weight: 400;
+        text-transform: capitalize;
+        font-family: $font-large-text;
+      }
+      & > div > p {
+        padding: 4px 12px;
+        height: 45px;
+        margin-bottom: 45px;
+        display: inline-block;
+        z-index: 99;
+      }
+
+      & div:first-child {
+        animation: slide-up 12s ease-in-out infinite;
+      }
+
+      @keyframes slide-up {
+        0% {
+          margin-top: 5px;
+        }
+        1% {
+          margin-top: 0px;
+        }
+        20% {
+          margin-top: 0px;
+        }
+        25% {
+          margin-top: -90px;
+        }
+        45% {
+          margin-top: -90px;
+        }
+        50% {
+          margin-top: -180px;
+        }
+        70% {
+          margin-top: -180px;
+        }
+        75% {
+          margin-top: -270px;
+        }
+        95% {
+          margin-top: -270px;
+        }
+        99.99% {
+          margin-top: -360px;
+        }
+        100% {
+          margin-top: 0px;
+        }
+      }
     }
   }
 }

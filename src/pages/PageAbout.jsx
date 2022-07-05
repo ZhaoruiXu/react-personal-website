@@ -1,34 +1,11 @@
-import { appTitle, api } from "../globals/global";
-import { useEffect, useState } from "react";
+import { appTitle } from "../globals/global";
+import { useEffect } from "react";
 
-export default function PageAbout() {
-  const [aboutContent, setAboutContent] = useState(false);
+export default function PageAbout({ aboutContent }) {
+  // const [aboutContent, setAboutContent] = useState(false);
 
   useEffect(() => {
-    document.title = `About ${appTitle} | Front End Developer | UX Desinger`;
-
-    const params = { acf_format: "standard" };
-
-    const fetchAboutContent = async () => {
-      try {
-        const response = await api.get("pages/9", {
-          params,
-        });
-        response && response.data && setAboutContent(response.data.acf);
-        console.log("about", response.data.acf);
-      } catch (err) {
-        if (err.response) {
-          // not in the 200 response rang
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          // all the other errors
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    };
-    fetchAboutContent();
+    document.title = `About ${appTitle}`;
   }, []);
 
   return (

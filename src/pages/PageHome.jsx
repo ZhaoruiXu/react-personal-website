@@ -42,7 +42,6 @@ export default function PageHome({ aboutContent, projectContent }) {
               return <h2 key={index}>{header.item}</h2>;
             }
           )}
-          {/* <p>{homeAboutContent.about_opening_sentence_paragraph}</p> */}
           <div id='flip'>
             {aboutContent.about_opening_sentence_repeater.map(
               (sentence, index) => {

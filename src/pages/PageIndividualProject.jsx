@@ -1,19 +1,32 @@
-import { appTitle, getAlt } from "../globals/global";
+import { appTitle, getAlt, FEATURED } from "../globals/global";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ProjectCard from "../components/ProjectCard";
 
 export default function PageIndividualProject({ projectContent }) {
   const [currentProject, setCurrentProject] = useState(false);
+  const [moreProjects, setMoreProjects] = useState(false);
   const { slug } = useParams();
 
   useEffect(() => {
     document.title = `${slug} | ${appTitle}`;
 
     if (projectContent) {
-      const filteredProjects = projectContent.filter(
-        oneProject => oneProject.slug[0] === slug
+      const project = projectContent.filter(
+        oneProject => oneProject.slug === slug
       );
-      setCurrentProject(filteredProjects);
+      setCurrentProject(project[0].acf);
+
+      const allOtherProjects = projectContent.filter(
+        oneProject =>
+          oneProject.slug !== slug &&
+          oneProject["fwd-project-category"][0] === FEATURED
+      );
+
+      // Show up to two featured projects for preview
+      const filteredMoreProjects = allOtherProjects.slice(0, 1);
+      setMoreProjects(filteredMoreProjects);
+      console.log("all other", project, allOtherProjects, filteredMoreProjects);
     }
   }, [projectContent, slug]);
 
@@ -21,6 +34,7 @@ export default function PageIndividualProject({ projectContent }) {
     currentProject && (
       <section className='single-project-page-section'>
         <h1 className='scree-reader-text'>single project page for {slug}</h1>
+        {console.log("testtest", currentProject.project_title)}
         <h2>{currentProject.project_title}</h2>
         {currentProject.detail_page_images.map((oneImageURL, index) => {
           let altMsg = getAlt(oneImageURL);
@@ -124,6 +138,13 @@ export default function PageIndividualProject({ projectContent }) {
           <h3>{currentProject.project_reflection_header}</h3>
           <p>{currentProject.project_reflection_content}</p>
         </article>
+
+        <section className='more-projects-preview'>
+          {moreProjects &&
+            moreProjects.map((oneProject, index) => {
+              return <ProjectCard key={index} data={oneProject} />;
+            })}
+        </section>
       </section>
     )
   );

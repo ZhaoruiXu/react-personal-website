@@ -16,6 +16,7 @@ import PageIndividualProject from "../pages/PageIndividualProject";
 function AppRouter() {
   const [aboutContent, setAboutContent] = useState(false);
   const [projectContent, setProjectContent] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     document.title = `${appTitle}`;
@@ -35,7 +36,10 @@ function AppRouter() {
 
         response_project.data && setProjectContent(response_project.data);
         console.log("project", response_project.data);
+
+        setIsLoaded(true);
       } catch (err) {
+        setIsLoaded(false);
         if (err.response) {
           // not in the 200 response rang
           console.log(err.response.data);
@@ -66,6 +70,7 @@ function AppRouter() {
                 <PageHome
                   aboutContent={aboutContent}
                   projectContent={projectContent}
+                  isLoaded={isLoaded}
                 />
               }
             />
@@ -85,6 +90,7 @@ function AppRouter() {
                 <PageHome
                   aboutContent={aboutContent}
                   projectContent={projectContent}
+                  isLoaded={isLoaded}
                 />
               }
             />

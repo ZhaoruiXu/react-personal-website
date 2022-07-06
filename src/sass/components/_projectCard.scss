@@ -3,6 +3,7 @@
   .project-image {
     cursor: pointer;
     overflow: hidden;
+    aspect-ratio: 1.7;
     img {
       width: 100%;
       object-fit: fill;
@@ -16,7 +17,7 @@
   .project-content {
     padding: 0.75rem 1.35rem;
     h3 {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: $dark-grey;
     }
@@ -58,7 +59,7 @@
             left: 0;
             background-color: $black;
             transform-origin: bottom right;
-            transition: transform 0.35s ease-in-out;
+            transition: transform 0.25s ease-in-out;
           }
           &:hover:after {
             transform: scaleX(1);

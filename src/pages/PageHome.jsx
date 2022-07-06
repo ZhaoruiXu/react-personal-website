@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 
-export default function PageHome({ aboutContent, projectContent }) {
+export default function PageHome({ aboutContent, projectContent, isLoaded }) {
   const [displayProjects, setDisplayProjects] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);
+  const [showMoreLessBtnDelay, setShowMoreLessBtnDelay] = useState(false);
 
   useEffect(() => {
     if (projectContent) {
@@ -14,6 +15,16 @@ export default function PageHome({ aboutContent, projectContent }) {
       );
       setDisplayProjects(filteredProjects);
     }
+
+    // to prevent flashing button between movie card loads
+    setShowMoreLessBtnDelay(false);
+    const timer = setTimeout(() => {
+      setShowMoreLessBtnDelay(true);
+    }, 700);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [projectContent]);
 
   const handleShowMoreProject = () => {
@@ -65,9 +76,13 @@ export default function PageHome({ aboutContent, projectContent }) {
             return <ProjectCard key={index} data={oneProject} />;
           })}
 
-        <button className='show-more-less-btn' onClick={handleShowMoreProject}>
-          {isLoadMore ? "Show Less" : "Show More"}
-        </button>
+        {isLoaded && showMoreLessBtnDelay && (
+          <button
+            className='show-more-less-btn'
+            onClick={handleShowMoreProject}>
+            {isLoadMore ? "Show Less" : "Show More"}
+          </button>
+        )}
       </section>
     </section>
   );

@@ -36,7 +36,7 @@ export default function Contact() {
 
   return (
     contactContent && (
-      <section className='contact-section'>
+      <section className='contact'>
         <ul>
           {contactContent.contact_sentence_repeater.map((oneSentence, i) => {
             return <li key={i}>{oneSentence.contact_sentence}</li>;

@@ -1,0 +1,36 @@
+.contact {
+  margin: 3rem 1.35rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-items: flex-start;
+  align-items: center;
+  max-width: 30rem;
+  ul {
+    li {
+      font-family: $font-large-text;
+      font-size: clamp(1.375rem, 7vw, 2.75rem);
+      margin-bottom: 0.5rem;
+      &:nth-child(2) {
+        margin-left: 0.75rem;
+      }
+      &:nth-child(3) {
+        margin-left: 1.5rem;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  button {
+    width: 80%;
+    font-size: 3.5vw;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    color: $white;
+    background-color: $black;
+    border: none;
+    text-transform: uppercase;
+    padding: 1rem;
+    justify-self: flex-end;
+  }
+}

@@ -1,26 +1,54 @@
 .home-page {
   .about {
-    margin: 5.625rem 03.5vw;
+    margin: 5.625rem 3.5vw;
     h2 {
       text-transform: uppercase;
-      // font-size: 25vw;
       font-size: clamp(40px, 25vw, 280px);
       font-weight: 500;
       line-height: 100%;
     }
-    a {
-      color: $lightest-grey;
+    .about-me-btn {
+      border: none;
+      text-align: center;
+      font-size: 1rem;
+      transition: all 0.4s;
+      cursor: pointer;
       border: 1.5px solid $lightest-grey;
-      padding: 0.75rem 1rem;
-      text-transform: uppercase;
       border-radius: 5.25rem;
+      width: 7.5rem;
+      padding: 0.5rem 0.75rem;
+      a {
+        color: $lightest-grey;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.4s;
+        &:after {
+          content: "\203A";
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+          line-height: 82.5%;
+          font-size: 1.5rem;
+        }
+      }
+      &:hover a {
+        padding-right: 25px;
+      }
+      &:hover a:after {
+        opacity: 1;
+        right: 0;
+      }
     }
     #flip {
       height: 30px;
       // height: 7vw;
       overflow: hidden;
       line-height: 100%;
-      margin: 1.5rem 0 2rem 0;
+      margin: 2.5rem 0 2rem 0;
       p {
         color: $light-grey;
         // font-size: 7vw;
@@ -115,6 +143,26 @@
         100% {
           margin-top: 0px;
         }
+      }
+    }
+  }
+  .projects-preview {
+    .show-more-less-btn {
+      display: block;
+      margin: 0 auto;
+      border: none;
+      text-align: center;
+      font-size: 1rem;
+      cursor: pointer;
+      color: $light-grey;
+      border: 1.5px solid $lightest-grey;
+      border-radius: 5.25rem;
+      width: 7rem;
+      padding: 0.5rem;
+      background-color: transparent;
+      &:hover {
+        // color: $white;
+        background-color: rgba($lightest-grey, 0.1);
       }
     }
   }

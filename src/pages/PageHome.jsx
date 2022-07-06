@@ -53,7 +53,9 @@ export default function PageHome({ aboutContent, projectContent }) {
               }
             )}
           </div>
-          <Link to='/about'>About Me</Link>
+          <div className='about-me-btn'>
+            <Link to='/about'>About Me</Link>
+          </div>
         </section>
       )}
 
@@ -63,8 +65,8 @@ export default function PageHome({ aboutContent, projectContent }) {
             return <ProjectCard key={index} data={oneProject} />;
           })}
 
-        <button onClick={handleShowMoreProject}>
-          {isLoadMore ? "show less" : "show more"}
+        <button className='show-more-less-btn' onClick={handleShowMoreProject}>
+          {isLoadMore ? "Show Less" : "Show More"}
         </button>
       </section>
     </section>

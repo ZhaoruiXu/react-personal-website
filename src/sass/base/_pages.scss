@@ -13,7 +13,7 @@
       font-size: 1rem;
       transition: all 0.4s;
       cursor: pointer;
-      border: 1.5px solid $lightest-grey;
+      border: 1px solid $lightest-grey;
       border-radius: 10rem;
       width: 7.5rem;
       padding: 0.5rem 0.75rem;
@@ -72,42 +72,6 @@
         animation: slide-up 12s ease-in-out infinite;
       }
 
-      // @keyframes slide-up {
-      //   0% {
-      //     margin-top: calc(7vw / 18);
-      //   }
-      //   1% {
-      //     margin-top: 0px;
-      //   }
-      //   20% {
-      //     margin-top: 0px;
-      //   }
-      //   25% {
-      //     margin-top: -7vw;
-      //   }
-      //   45% {
-      //     margin-top: -7vw;
-      //   }
-      //   50% {
-      //     margin-top: -14vw;
-      //   }
-      //   70% {
-      //     margin-top: -14vw;
-      //   }
-      //   75% {
-      //     margin-top: -21vw;
-      //   }
-      //   95% {
-      //     margin-top: -21vw;
-      //   }
-      //   99.99% {
-      //     margin-top: -28vw;
-      //   }
-      //   100% {
-      //     margin-top: 0px;
-      //   }
-      // }
-
       @keyframes slide-up {
         0% {
           margin-top: 5px;
@@ -146,7 +110,7 @@
     }
   }
   .projects-preview {
-    min-height: 100vh;
+    // min-height: 100vh;
     .show-more-less-btn {
       display: block;
       margin: 0 auto;
@@ -155,16 +119,18 @@
       font-size: 1rem;
       cursor: pointer;
       color: $light-grey;
-      border: 1.5px solid $lightest-grey;
+      border: 1px solid $light-grey;
       border-radius: 10rem;
       width: 7rem;
       padding: 0.5rem;
       background-color: transparent;
       line-height: 1.5rem;
       text-transform: uppercase;
-
+      transition: all 0.25s ease;
       &:hover {
-        background-color: rgba($lightest-grey, 0.075);
+        // background-color: rgba($lightest-grey, 0.05);
+        color: $dark-grey;
+        border: 1px solid $dark-grey;
       }
     }
   }

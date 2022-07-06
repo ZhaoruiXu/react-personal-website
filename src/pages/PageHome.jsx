@@ -70,7 +70,9 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
         </section>
       )}
 
-      <section className='projects-preview'>
+      <section
+        className='projects-preview'
+        style={{ minHeight: displayProjects ? "" : "100vh" }}>
         {displayProjects &&
           displayProjects.map((oneProject, index) => {
             return <ProjectCard key={index} data={oneProject} />;

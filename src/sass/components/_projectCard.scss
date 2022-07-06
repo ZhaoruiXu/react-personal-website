@@ -49,6 +49,8 @@
           color: $lightest-grey;
           display: inline-block;
           position: relative;
+          transition: color 0.35s ease 0.2s;
+
           &:after {
             content: "";
             position: absolute;
@@ -68,7 +70,7 @@
           }
           &:hover {
             color: $black;
-            transition: color 1.75s ease;
+            transition: color 1s ease;
           }
         }
       }

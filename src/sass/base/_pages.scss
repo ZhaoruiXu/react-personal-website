@@ -59,7 +59,7 @@
       & > div > p {
         padding: 4px;
         // padding: 1vw 4vw;
-        font-size: 7vw;
+        font-size: clamp(1rem, 7vw, 1.8rem);
 
         height: 45px;
         margin-bottom: 45px;

@@ -69,14 +69,14 @@
       }
 
       & div:first-child {
-        animation: slide-up 12s ease-in-out infinite;
+        animation: slide-up 15s ease-in-out infinite;
       }
 
       @keyframes slide-up {
         0% {
-          margin-top: 5px;
+          margin-top: 22.5px;
         }
-        1% {
+        1.25% {
           margin-top: 0px;
         }
         20% {

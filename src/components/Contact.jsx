@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { api } from "../globals/global";
-import github from "../images/github-icon.svg";
-import linkedin from "../images/linkedin-icon.svg";
+// import github from "../images/github-icon.svg";
+// import linkedin from "../images/linkedin-icon.svg";
+import GitHubLogo from "./GitHubLogo";
+import LinkedInLogo from "./LinkedInLogo";
 
 export default function Contact() {
   const [contactContent, setcontactContent] = useState(false);
-  const [contactBtnMsg, setContactBtnMsg] = useState("yes");
+  const [contactBtnMsg, setContactBtnMsg] = useState("email me");
   const [isContactBtnEnter, setIsContactBtnEnter] = useState(false);
 
   useEffect(() => {
@@ -52,12 +54,6 @@ export default function Contact() {
     setContactBtnMsg("email copied");
   };
 
-  // const handleEnterEmail = () => {
-  //   setTimeout(() => {
-  //     setContactBtnMsg("copy email");
-  //   }, 500);
-  // };
-
   return (
     contactContent && (
       <section className='contact'>
@@ -67,10 +63,10 @@ export default function Contact() {
           })}
           <li className='social-media'>
             <a href='https://github.com/ZhaoruiXu'>
-              <img src={github} alt='GitHub icon' />
+              <GitHubLogo />
             </a>
             <a href='https://www.linkedin.com/in/zhaorui-xu/'>
-              <img src={linkedin} alt='LinkedIn icon' />
+              <LinkedInLogo />
             </a>
           </li>
         </ul>
@@ -78,7 +74,7 @@ export default function Contact() {
           onClick={handleCopyEmail}
           onMouseEnter={() => setIsContactBtnEnter(true)}
           onMouseLeave={() => {
-            setContactBtnMsg("yes!");
+            setContactBtnMsg("email me");
             setIsContactBtnEnter(false);
           }}>
           {contactBtnMsg}

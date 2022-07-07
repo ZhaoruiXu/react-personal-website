@@ -4,7 +4,7 @@
   grid-template-columns: 2fr 1fr;
   justify-items: flex-start;
   align-items: center;
-  max-width: 30rem;
+  max-width: 35rem;
   ul {
     li {
       font-family: $font-large-text;
@@ -18,29 +18,44 @@
         margin-left: 1.5rem;
         margin-bottom: 1rem;
       }
-      &:last-child {
-        margin-left: 2.75rem;
-        margin-bottom: 0;
-        display: flex;
-        column-gap: 1.5rem;
+    }
+    .social-media {
+      margin-left: 2.75rem;
+      margin-bottom: 0;
+      display: flex;
+      column-gap: 1.75rem;
+      a {
+        line-height: 0;
+        &:hover,
+        &:focus {
+          svg {
+            fill: $lightest-grey;
+          }
+        }
+        svg {
+          width: clamp(0.75rem, 6vw, 1.75rem);
+
+          height: auto;
+        }
       }
     }
   }
   button {
     width: 90%;
-    font-size: 3.5vw;
+    font-size: 2.85vw;
     aspect-ratio: 1/1;
+    border: none;
     border-radius: 100%;
+    border: 1px solid $black;
     color: $white;
     background-color: $black;
-    border: none;
     text-transform: uppercase;
     justify-self: flex-end;
     transition: all 0.05s linear;
     &:hover {
       background-color: transparent;
-      color: $light-grey;
-      border: 1px double $light-grey;
+      color: $black;
+      border: 1px solid $black;
       transition: all 0.05s linear 0.15s;
       font-size: 2.85vw;
       font-weight: 600;

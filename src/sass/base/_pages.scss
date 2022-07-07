@@ -1,50 +1,14 @@
-.home-page {
-  .about {
+.home-page-section {
+  .about-section {
+    // position: relative;
     margin: 5.625rem 3.75vw;
     h2 {
       text-transform: uppercase;
-      font-size: clamp(90px, 25vw, 175px);
+      font-size: clamp(90px, 25vw, 200px);
       font-weight: 500;
       line-height: 100%;
     }
-    .about-me-btn {
-      text-align: center;
-      font-size: 0.75rem;
-      transition: all 0.4s;
-      cursor: pointer;
-      border: 1px solid $light-grey;
-      border-radius: 10rem;
-      width: 6.25rem;
-      padding: 0.5rem 0;
-      a {
-        color: $light-grey;
-        text-transform: uppercase;
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.4s;
-        &:after {
-          content: "\203A";
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -20px;
-          transition: 0.5s;
-          line-height: 0.6;
-          font-size: 1.5rem;
-        }
-      }
-      &:hover a,
-      &:focus a {
-        padding-right: 20px;
-      }
-      &:hover a:after,
-      &:focus a:after {
-        opacity: 1;
-        right: 0;
-      }
-    }
-    #flip {
+    .about-sentences {
       height: 30px;
       // height: 7vw;
       overflow: hidden;
@@ -66,47 +30,88 @@
         margin-bottom: 45px;
         // height: 3.5vw;
         // margin-bottom: 3.5vw;
-        display: inline-block;
+        display: block;
       }
 
       & div:first-child {
-        animation: slide-up 15s ease-in-out infinite;
+        animation: slide-up 15s linear infinite;
       }
 
       @keyframes slide-up {
         0% {
-          margin-top: 22.5px;
+          transform: translateY(22.5px);
+          opacity: 1;
         }
-        1.25% {
-          margin-top: 0px;
+        2% {
+          transform: translateY(0px);
         }
         20% {
-          margin-top: 0px;
+          transform: translateY(0px);
         }
         25% {
-          margin-top: -90px;
+          transform: translateY(-90px);
         }
         45% {
-          margin-top: -90px;
+          transform: translateY(-90px);
         }
         50% {
-          margin-top: -180px;
+          transform: translateY(-180px);
         }
         70% {
-          margin-top: -180px;
+          transform: translateY(-180px);
         }
         75% {
-          margin-top: -270px;
+          transform: translateY(-270px);
         }
         95% {
-          margin-top: -270px;
+          transform: translateY(-270px);
         }
         99.99% {
-          margin-top: -360px;
+          transform: translateY(-360px);
+          opacity: 1;
         }
         100% {
-          margin-top: 0px;
+          transform: translateY(22.5px);
+          opacity: 0;
         }
+      }
+    }
+    .about-me-btn {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      transition: all 0.4s;
+      cursor: pointer;
+      border: 1px solid $light-grey;
+      border-radius: 10rem;
+      width: 6.25rem;
+      padding: 0.5rem 0;
+      p {
+        color: $light-grey;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.4s;
+        &:after {
+          content: "\203A";
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+          line-height: 0.6;
+          font-size: 1.5rem;
+        }
+      }
+      &:hover p,
+      &:focus p {
+        padding-right: 20px;
+      }
+      &:hover p:after,
+      &:focus p:after {
+        opacity: 1;
+        right: 0;
       }
     }
   }

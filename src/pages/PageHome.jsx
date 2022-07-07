@@ -45,28 +45,27 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
   };
 
   return (
-    <section className='home-page'>
+    <section className='home-page-section'>
       {aboutContent && (
-        <section className='about'>
+        <section className='about-section'>
           {aboutContent.about_opening_sentence_header_repeater.map(
             (header, index) => {
               return <h2 key={index}>{header.item}</h2>;
             }
           )}
-          <div id='flip'>
-            {aboutContent.about_opening_sentence_repeater.map(
-              (sentence, index) => {
-                return (
-                  <div key={index}>
-                    <p>{sentence.item}</p>
-                  </div>
-                );
-              }
-            )}
+          <div className='about-sentences'>
+            <div>
+              {aboutContent.about_opening_sentence_repeater.map(
+                (sentence, index) => {
+                  return <p key={index}>{sentence.item}</p>;
+                }
+              )}
+            </div>
           </div>
-          <div className='about-me-btn'>
-            <Link to='/about'>About Me</Link>
-          </div>
+
+          <Link className='about-me-btn' to='/about'>
+            <p>About Me</p>
+          </Link>
         </section>
       )}
 

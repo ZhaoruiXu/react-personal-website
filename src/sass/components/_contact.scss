@@ -1,5 +1,5 @@
 .contact {
-  margin: 20rem 5%;
+  margin: 10rem 5%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-items: flex-start;
@@ -58,6 +58,11 @@
       border: 1px solid $black;
       transition: all 0.05s linear 0.15s;
       font-weight: 600;
+    }
+  }
+  @media (min-width: $large-viewport-breakpoint) {
+    & {
+      margin: 20rem 5%;
     }
   }
 }

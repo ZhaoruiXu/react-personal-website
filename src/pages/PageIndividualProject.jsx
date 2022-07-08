@@ -26,7 +26,6 @@ export default function PageIndividualProject({ projectContent }) {
       // Show up to two featured projects for preview
       const filteredMoreProjects = allOtherProjects.slice(0, 1);
       setMoreProjects(filteredMoreProjects);
-      console.log("all other", project, allOtherProjects, filteredMoreProjects);
     }
   }, [projectContent, slug]);
 
@@ -34,7 +33,6 @@ export default function PageIndividualProject({ projectContent }) {
     currentProject && (
       <section className='single-project-page-section'>
         <h1 className='screen-reader-text'>single project page for {slug}</h1>
-        {console.log("testtest", currentProject.project_title)}
         <h2>{currentProject.project_title}</h2>
         {currentProject.detail_page_images.map((oneImageURL, index) => {
           let altMsg = getAlt(oneImageURL);

@@ -10,15 +10,16 @@ export default function PageAbout({ aboutContent }) {
 
   return (
     aboutContent && (
-      <section className='about-page'>
+      <section className='about-page-section'>
         <h1 className='screen-reader-text'>About page</h1>
+
         <h2>{aboutContent.about_my_name}</h2>
-        <p>{aboutContent.about_my_title}</p>
+        <h3 className='about-my-title'>{aboutContent.about_my_title}</h3>
         <img
-          // can get the image size state by useState and matchMedia to update the image size state (might not work yet)
-          src={aboutContent.about_my_illustration.sizes.thumbnail}
+          src={aboutContent.about_my_illustration.sizes.large}
           alt={aboutContent.about_my_illustration.caption}
         />
+
         <h3>{aboutContent.about_skill_header}</h3>
         {aboutContent.about_skill.map((oneSkillCategory, i) => {
           return (

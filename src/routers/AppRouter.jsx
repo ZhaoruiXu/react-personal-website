@@ -1,7 +1,7 @@
 // Development Components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { appTitle, api, params_about, params_project } from "../globals/global";
+import { appTitle, api, params, params_project } from "../globals/global";
 
 // Components
 import Header from "../components/Header";
@@ -16,6 +16,7 @@ import PageIndividualProject from "../pages/PageIndividualProject";
 function AppRouter() {
   const [aboutContent, setAboutContent] = useState(false);
   const [projectContent, setProjectContent] = useState(false);
+  const [contactContent, setContactContent] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -24,18 +25,22 @@ function AppRouter() {
     const fetchHomeContent = async () => {
       try {
         const response_about = await api.get("pages/9", {
-          params: params_about,
+          params,
         });
 
         const response_project = await api.get("fwd-project", {
           params: params_project,
         });
 
-        response_about.data && setAboutContent(response_about.data.acf);
-        console.log("about", response_about.data.acf);
+        const response_contact = await api.get("pages/94", {
+          params,
+        });
 
+        response_about.data && setAboutContent(response_about.data.acf);
+        console.log(response_about.data.acf);
         response_project.data && setProjectContent(response_project.data);
-        console.log("project", response_project.data);
+
+        response_contact.data && setContactContent(response_contact.data.acf);
 
         setIsLoaded(true);
       } catch (err) {
@@ -95,7 +100,7 @@ function AppRouter() {
               }
             />
           </Routes>
-          <Contact />
+          <Contact contactContent={contactContent} />
         </main>
         <Footer />
       </div>

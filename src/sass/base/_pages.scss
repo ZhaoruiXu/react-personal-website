@@ -140,3 +140,20 @@
     }
   }
 }
+
+.about-page-section {
+  margin: 5.625rem 3.75vw;
+  h2 {
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  .about-my-title {
+    text-align: center;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  img {
+    margin: 5rem auto;
+  }
+}

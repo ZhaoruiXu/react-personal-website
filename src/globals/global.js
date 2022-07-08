@@ -15,7 +15,7 @@ export const getAlt = URL => {
 export const FEATURED = 4;
 export const FUN = 5;
 
-export const params_about = { acf_format: "standard" };
+export const params = { acf_format: "standard" };
 export const params_project = {
   acf_format: "standard",
   orderby: "menu_order",

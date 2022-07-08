@@ -5,17 +5,20 @@ import { useState } from "react";
 export default function NavMain() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
-    <nav className='main-nav'>
-      {isNavOpen && (
-        <ul>
-          <li onClick={e => e.target.blur()}>
-            <NavLink to='/'>Project</NavLink>
-          </li>
-          <li onClick={e => e.target.blur()}>
-            <NavLink to='/about'>About</NavLink>
-          </li>
-        </ul>
-      )}
+    <nav className={`main-nav ${isNavOpen ? "nav-open" : ""}`}>
+      <ul>
+        <li onClick={e => e.target.blur()}>
+          <NavLink to='/' tabIndex={isNavOpen ? 0 : -1}>
+            Project
+          </NavLink>
+        </li>
+        <li onClick={e => e.target.blur()}>
+          <NavLink to='/about' tabIndex={isNavOpen ? 0 : -1}>
+            About
+          </NavLink>
+        </li>
+      </ul>
+
       <MenuBtn handleMenuBtnClick={() => setIsNavOpen(!isNavOpen)} />
     </nav>
   );

@@ -5,19 +5,41 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: $black;
   border-radius: 2rem;
   padding: 0.25rem;
   z-index: 99;
+  overflow: hidden;
+  transition: background-color 0.25s ease-out;
   ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 10rem;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.25s ease-in-out;
     li {
       a {
         color: $white;
         text-transform: uppercase;
+      }
+    }
+  }
+  &.nav-open {
+    background-color: $black;
+    ul {
+      opacity: 1;
+      width: 10rem;
+      pointer-events: unset;
+      li {
+        a {
+          text-decoration: underline solid transparent;
+          transition: text-decoration 0.25s ease-out;
+          &:hover,
+          &:focus {
+            text-decoration: underline solid currentColor;
+          }
+        }
       }
     }
   }

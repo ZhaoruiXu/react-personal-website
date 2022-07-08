@@ -46,7 +46,7 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
 
   return (
     <section className='home-page-section'>
-      {aboutContent && (
+      {isLoaded && (
         <section className='about-section'>
           <h1 className='screen-reader-text'>Project page</h1>
           {aboutContent.about_opening_sentence_header_repeater.map(

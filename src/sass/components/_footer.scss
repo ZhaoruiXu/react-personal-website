@@ -1,5 +1,6 @@
 footer {
-  margin: 0.5rem auto;
+  margin: 0.5rem 0;
+  text-align: center;
   p {
     text-transform: uppercase;
     font-weight: 500;
@@ -8,8 +9,5 @@ footer {
     span:first-child {
       font-size: 1.1rem;
     }
-    // span:last-child {
-    //   font-size: 0.9rem;
-    // }
   }
 }

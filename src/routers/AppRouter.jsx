@@ -81,12 +81,17 @@ function AppRouter() {
             />
             <Route
               path='/about'
-              element={<PageAbout aboutContent={aboutContent} />}
+              element={
+                <PageAbout aboutContent={aboutContent} isLoaded={isLoaded} />
+              }
             />
             <Route
               path='/project/:slug'
               element={
-                <PageIndividualProject projectContent={projectContent} />
+                <PageIndividualProject
+                  projectContent={projectContent}
+                  isLoaded={isLoaded}
+                />
               }
             />
             <Route

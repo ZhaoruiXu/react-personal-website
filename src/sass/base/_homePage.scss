@@ -118,7 +118,7 @@
     .show-more-less-btn {
       display: block;
       margin: 0 auto;
-      padding: 0.25rem 0.5rem;
+      padding: 0.3rem 0.7rem;
       border: 1px solid $light-grey;
       border-radius: 10rem;
       color: $light-grey;
@@ -130,12 +130,12 @@
       cursor: pointer;
       transition: all 0.25s ease;
       &:hover {
-        color: $dark-grey;
-        border: 1px solid $dark-grey;
+        color: $black;
+        border: 1px solid $black;
       }
       @media (min-width: $large-viewport-breakpoint) {
         font-size: 1rem;
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 0.85rem;
       }
     }
   }

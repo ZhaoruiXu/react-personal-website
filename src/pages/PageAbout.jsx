@@ -15,10 +15,12 @@ export default function PageAbout({ aboutContent, isLoaded }) {
           <h1 className='screen-reader-text'>About page</h1>
           <h2>{aboutContent.about_my_name}</h2>
           <h3 className='about-my-title'>{aboutContent.about_my_title}</h3>
-          <img
-            src={aboutContent.about_my_illustration.sizes.large}
-            alt={aboutContent.about_my_illustration.caption}
-          />
+          <div className='about-my-illustration'>
+            <img
+              src={aboutContent.about_my_illustration.sizes.large}
+              alt={aboutContent.about_my_illustration.caption}
+            />
+          </div>
           <div className='about-skill'>
             <div className='about-skill-wrapper'>
               <h3>{aboutContent.about_skill_header}</h3>

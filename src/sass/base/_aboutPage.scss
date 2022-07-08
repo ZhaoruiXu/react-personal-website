@@ -11,9 +11,15 @@
     font-size: 1.25rem;
     text-transform: capitalize;
   }
-  img {
+  .about-my-illustration {
+    overflow: hidden;
+    aspect-ratio: 1;
     margin: 4rem auto;
     max-width: 15rem;
+    img {
+      width: 100%;
+      object-fit: fill;
+    }
   }
   h3 {
     font-size: 1.5rem;
@@ -70,9 +76,7 @@
     .about-my-title {
       font-size: clamp(1.25rem, 2.75vw, 1.75rem);
     }
-    img {
-      margin: 4rem auto;
-      width: 50%;
+    .about-my-illustration {
       max-width: 18rem;
     }
     h3 {
@@ -126,12 +130,8 @@
                 grid-template-columns: repeat(4, 1fr);
               }
             }
-            h4 {
-              // margin: 0;
-            }
             margin: 0;
             ul {
-              // align-items: flex-start !important;
               grid-template-columns: repeat(3, 1fr);
             }
           }

@@ -1,14 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import GitHubLogo from "./GitHubLogo";
 import LinkedInLogo from "./LinkedInLogo";
 
 export default function Contact({ contactContent }) {
   const [contactBtnMsg, setContactBtnMsg] = useState("email me");
   const [isContactBtnEnter, setIsContactBtnEnter] = useState(false);
+  // const [isContactBtnEnterMobile, setIsContactBtnEnterMobile] = useState(false);
+  const isContactBtnEnterMobile = useRef(null);
 
   useEffect(() => {
     const handleContactEmailMounseEnter = () => {
-      isContactBtnEnter && setContactBtnMsg("copy email");
+      if (isContactBtnEnter && !isContactBtnEnterMobile.current) {
+        setContactBtnMsg("copy email");
+      } else {
+        isContactBtnEnterMobile.current = false;
+      }
     };
 
     const timer = setTimeout(handleContactEmailMounseEnter, 150);
@@ -22,6 +28,8 @@ export default function Contact({ contactContent }) {
     /* Copy the text inside the text field */
     navigator.clipboard.writeText("xzr0429@gmail.com");
     setContactBtnMsg("email copied");
+    setIsContactBtnEnter(true);
+    isContactBtnEnterMobile.current = true;
   };
 
   return (

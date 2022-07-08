@@ -1,9 +1,19 @@
 header {
-  svg {
-    width: 2.25rem;
-    height: 2.25rem;
+  .logo-link {
+    display: inline-block;
     position: absolute;
     left: 1rem;
     top: 1.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    &:hover svg {
+      transform: rotate(0.25turn);
+    }
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+
+      transition: transform 0.35s ease-in-out;
+    }
   }
 }

@@ -7,7 +7,10 @@ $white: #ffffff;
 $black: #000000;
 
 // fonts
-
 $font-large-text: "Oswald", sans-serif;
 $font-small-text: "Inconsolata", monospace;
 $font-reading-text: "Assistant", sans-serif;
+
+// Viewport Breakpoints
+$medium-viewport-breakpoint: 30em;
+$large-viewport-breakpoint: 60em;

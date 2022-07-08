@@ -19,40 +19,42 @@ export default function ProjectCard({ data }) {
           </div>
         )}
         <div className='project-content'>
-          <h3>{data.acf.project_title}</h3>
-          <ul className='project-tools'>
-            {data.acf.project_tools.map((oneTool, index) => {
-              return (
-                <li key={index}>
-                  <p>
-                    {oneTool.project_tool}
-                    {index !== data.acf.project_tools.length - 1 && (
-                      <span>·</span>
-                    )}
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
-          <p className='project-description'>
-            {data.acf.project_preview_description}
-          </p>
-          <ul className='project-links'>
-            <li>
-              <a
-                href={data.acf.links[0].live_site_link}
-                target='_blank'
-                rel='noopener noreferrer'>
-                Live Site
-              </a>
-            </li>
-
-            {data["fwd-project-category"][0] === FEATURED && (
+          <div className='project-content-wrapper'>
+            <h3>{data.acf.project_title}</h3>
+            <ul className='project-tools'>
+              {data.acf.project_tools.map((oneTool, index) => {
+                return (
+                  <li key={index}>
+                    <p>
+                      {oneTool.project_tool}
+                      {index !== data.acf.project_tools.length - 1 && (
+                        <span>·</span>
+                      )}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className='project-description'>
+              {data.acf.project_preview_description}
+            </p>
+            <ul className='project-links'>
               <li>
-                <Link to={`/project/${data.slug}`}>Learn More</Link>
+                <a
+                  href={data.acf.links[0].live_site_link}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  Live Site
+                </a>
               </li>
-            )}
-          </ul>
+
+              {data["fwd-project-category"][0] === FEATURED && (
+                <li>
+                  <Link to={`/project/${data.slug}`}>Learn More</Link>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </article>

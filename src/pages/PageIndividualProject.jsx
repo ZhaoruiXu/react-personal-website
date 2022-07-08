@@ -33,7 +33,7 @@ export default function PageIndividualProject({ projectContent }) {
   return (
     currentProject && (
       <section className='single-project-page-section'>
-        <h1 className='scree-reader-text'>single project page for {slug}</h1>
+        <h1 className='screen-reader-text'>single project page for {slug}</h1>
         {console.log("testtest", currentProject.project_title)}
         <h2>{currentProject.project_title}</h2>
         {currentProject.detail_page_images.map((oneImageURL, index) => {

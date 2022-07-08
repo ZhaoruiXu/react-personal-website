@@ -1,10 +1,10 @@
 .contact {
-  margin: 6rem 1.35rem;
+  margin: 20rem 5%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-items: flex-start;
   align-items: center;
-  max-width: 35rem;
+  max-width: 50rem;
   ul {
     li {
       font-family: $font-large-text;
@@ -12,15 +12,15 @@
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       &:nth-child(2) {
-        margin-left: 0.75rem;
+        margin-left: 1rem;
       }
       &:nth-last-child(2) {
-        margin-left: 1.5rem;
-        margin-bottom: 1rem;
+        margin-left: 2rem;
+        margin-bottom: 1.25rem;
       }
     }
     .social-media {
-      margin-left: 2.75rem;
+      margin-left: 3.25rem;
       margin-bottom: 0;
       display: flex;
       column-gap: 1.75rem;
@@ -34,15 +34,15 @@
         }
         svg {
           width: clamp(0.75rem, 6vw, 1.75rem);
-
           height: auto;
+          transition: fill 0.15s ease-in-out;
         }
       }
     }
   }
   button {
-    width: 90%;
-    font-size: 2.85vw;
+    width: 80%;
+    font-size: clamp(0.5rem, 2.85vw, 1.25rem);
     aspect-ratio: 1/1;
     border: none;
     border-radius: 100%;
@@ -57,7 +57,6 @@
       color: $black;
       border: 1px solid $black;
       transition: all 0.05s linear 0.15s;
-      font-size: 2.85vw;
       font-weight: 600;
     }
   }

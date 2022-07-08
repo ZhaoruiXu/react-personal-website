@@ -11,7 +11,7 @@ export default function PageAbout({ aboutContent }) {
   return (
     aboutContent && (
       <section className='about-page'>
-        <h1 className='scree-reader-text'>About Me</h1>
+        <h1 className='screen-reader-text'>About page</h1>
         <h2>{aboutContent.about_my_name}</h2>
         <p>{aboutContent.about_my_title}</p>
         <img

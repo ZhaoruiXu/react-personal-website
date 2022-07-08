@@ -48,6 +48,7 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
     <section className='home-page-section'>
       {aboutContent && (
         <section className='about-section'>
+          <h1 className='screen-reader-text'>Project page</h1>
           {aboutContent.about_opening_sentence_header_repeater.map(
             (header, index) => {
               return <h2 key={index}>{header.item}</h2>;
@@ -62,7 +63,6 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
               )}
             </div>
           </div>
-
           <Link className='about-me-btn' to='/about'>
             <p>About Me</p>
           </Link>

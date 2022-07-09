@@ -1,9 +1,8 @@
 import axios from "axios";
 
-export const appTitle = "Rui Xu | Front End Developer | UX Desinger";
+export const appTitle = "Zhaorui Xu | Front End Developer | UX Desinger";
 
 export const api = axios.create({
-  // baseURL: "http://localhost:8888/Personal/web-portfolio/wp-json/wp/v2",
   baseURL: "https://zhaoruixu.com/wp-headless-react/wp-json/wp/v2",
 });
 

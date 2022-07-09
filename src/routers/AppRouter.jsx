@@ -61,7 +61,7 @@ function AppRouter() {
   }, []);
 
   return (
-    <BrowserRouter basename='/react-portfolio'>
+    <BrowserRouter basename='/personal-portfolio'>
       <a href='#site-main' className='screen-reader-text'>
         Skip to main page
       </a>

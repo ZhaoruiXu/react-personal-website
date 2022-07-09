@@ -129,7 +129,10 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
               )}
           </article>
           <article className='project-designs'>
-            <h3>{currentProject.project_design_header}</h3>
+            <h3>
+              {currentProject.project_design_repeater &&
+                currentProject.project_design_header}
+            </h3>
             {currentProject.project_design_repeater &&
               currentProject.project_design_repeater.map((oneDesign, index) => {
                 return (
@@ -154,11 +157,14 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
               })}
           </article>
           <article className='project-reflection'>
-            <h3>{currentProject.project_reflection_header}</h3>
+            <h3>
+              {currentProject.project_reflection_content &&
+                currentProject.project_reflection_header}
+            </h3>
             <p>{currentProject.project_reflection_content}</p>
           </article>
           <section className='more-projects-preview'>
-            <h3>More Projects</h3>
+            <h3 className='more-projects-header'>More Projects</h3>
             {moreProjects &&
               moreProjects.map((oneProject, index) => {
                 return <ProjectCard key={index} data={oneProject} />;

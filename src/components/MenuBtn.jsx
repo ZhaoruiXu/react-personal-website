@@ -4,8 +4,8 @@ export default function MenuBtn({ handleMenuBtnClick }) {
       className='menu-button'
       onClick={handleMenuBtnClick}
       aria-label='Navigation menu button'>
-      <div className={`bar bar1`}></div>
-      <div className={`bar bar2`}></div>
+      <div className={`menu-line top`}></div>
+      <div className={`menu-line bottom`}></div>
     </button>
   );
 }

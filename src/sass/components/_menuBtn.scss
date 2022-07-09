@@ -3,15 +3,26 @@
   border: 0;
   border-radius: 5rem;
   background-color: $white;
+  cursor: pointer;
 
-  .bar {
+  .menu-line {
     background-color: $black;
     width: 1.125rem;
     height: 0.125rem;
     border-radius: 0.25rem;
-    transition: transform 0.5s, background-color 0.15s;
+    transition: all 0.25s ease-out;
   }
-  .bar1 {
+  .top {
     margin-bottom: 0.5rem;
+  }
+
+  &:hover .menu-line.top {
+    transform: translateY(0.3125rem);
+    // transform: translate(0%, 275%) rotate(-45deg);
+  }
+
+  &:hover .menu-line.bottom {
+    transform: translateY(-0.3125rem);
+    // transform: translate(0%, -200%) rotate(45deg);
   }
 }

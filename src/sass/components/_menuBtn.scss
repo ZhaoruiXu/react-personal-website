@@ -3,8 +3,11 @@
   border: 0;
   border-radius: 5rem;
   background-color: $white;
+  transition: transform 0.35s linear;
   cursor: pointer;
-
+  &:hover {
+    transform: rotate(0.5turn);
+  }
   .menu-line {
     background-color: $black;
     width: 1.125rem;
@@ -15,14 +18,14 @@
   .top {
     margin-bottom: 0.5rem;
   }
+  &.nav-open {
+    transform: rotate(0);
 
-  &:hover .menu-line.top {
-    transform: translateY(0.3125rem);
-    // transform: translate(0%, 275%) rotate(-45deg);
-  }
-
-  &:hover .menu-line.bottom {
-    transform: translateY(-0.3125rem);
-    // transform: translate(0%, -200%) rotate(45deg);
+    .menu-line.top {
+      transform: translate(0%, 275%) rotate(-45deg);
+    }
+    .menu-line.bottom {
+      transform: translate(0%, -230%) rotate(45deg);
+    }
   }
 }

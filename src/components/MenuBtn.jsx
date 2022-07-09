@@ -1,7 +1,7 @@
-export default function MenuBtn({ handleMenuBtnClick }) {
+export default function MenuBtn({ handleMenuBtnClick, isNavOpen }) {
   return (
     <button
-      className='menu-button'
+      className={`menu-button ${isNavOpen ? "nav-open" : ""}`}
       onClick={handleMenuBtnClick}
       aria-label='Navigation menu button'>
       <div className={`menu-line top`}></div>

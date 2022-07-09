@@ -19,7 +19,10 @@ export default function NavMain() {
         </li>
       </ul>
 
-      <MenuBtn handleMenuBtnClick={() => setIsNavOpen(!isNavOpen)} />
+      <MenuBtn
+        handleMenuBtnClick={() => setIsNavOpen(!isNavOpen)}
+        isNavOpen={isNavOpen}
+      />
     </nav>
   );
 }

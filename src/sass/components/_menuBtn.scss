@@ -3,7 +3,7 @@
   border: 0;
   border-radius: 5rem;
   background-color: $white;
-  transition: transform 0.35s linear;
+  transition: transform 0.35s ease-in;
   cursor: pointer;
   &:hover {
     transform: rotate(0.5turn);

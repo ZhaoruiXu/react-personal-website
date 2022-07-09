@@ -1,0 +1,65 @@
+.single-project-page-section {
+  margin: 6rem 3.75vw;
+  h2 {
+    font-size: 4rem;
+    // font-family: $font-reading-text;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  h4 {
+    margin: 0.5rem 0;
+  }
+  p {
+    color: $medium-grey;
+  }
+  article {
+    margin: 2rem 0;
+  }
+  .detail-page-images-wrapper {
+    margin-top: 2rem;
+    overflow: hidden;
+    aspect-ratio: 1.7;
+    img {
+      width: 100%;
+      object-fit: fill;
+    }
+  }
+
+  .project-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    h3 {
+      grid-area: 1/1/2/3;
+    }
+    .project-specs-fields {
+      h4 {
+        font-size: 1.25rem;
+      }
+      &:nth-child(5) {
+        grid-area: 3/2/5/3;
+      }
+      a {
+        font-family: $font-reading-text;
+        // font-weight: 700;
+        color: $black;
+      }
+      .link-list {
+        display: flex;
+        column-gap: 1.5rem;
+        li {
+          a {
+            svg {
+              transition: fill 0.15s ease-out;
+              &:hover,
+              &:focus {
+                fill: $lightest-grey;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

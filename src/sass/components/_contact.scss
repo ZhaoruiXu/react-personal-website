@@ -35,7 +35,7 @@
         svg {
           width: clamp(0.75rem, 6vw, 1.75rem);
           height: auto;
-          transition: fill 0.15s ease-in-out;
+          transition: fill 0.15s ease-out;
         }
       }
     }

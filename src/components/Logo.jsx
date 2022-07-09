@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function Logo() {
   return (
-    <Link className='logo-link' to={`/`}>
+    <Link
+      className='logo-link'
+      to={`/`}
+      onClick={e => {
+        e.target.blur();
+      }}>
       <svg
         id='Layer_1'
         xmlns='http://www.w3.org/2000/svg'

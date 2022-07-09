@@ -26,7 +26,7 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
       );
 
       // Show up to two featured projects for preview
-      const filteredMoreProjects = allOtherProjects.slice(0, 1);
+      const filteredMoreProjects = allOtherProjects.slice(0, 2);
       setMoreProjects(filteredMoreProjects);
     }
   }, [projectContent, slug]);
@@ -104,17 +104,22 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
                 (oneFeature, index) => {
                   return (
                     <div key={index} className='feature-fields'>
-                      <h4>{oneFeature.project_feature_title}</h4>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: oneFeature.project_feature_content,
-                        }}></div>
+                      <div className='feature-content'>
+                        <h4>{oneFeature.project_feature_title}</h4>
+                        <p>{oneFeature.project_feature_content}</p>
+                      </div>
                       {oneFeature.project_feature_gallery &&
                         oneFeature.project_feature_gallery.map(
                           (oneImageURL, index) => {
                             let altMsg = getAlt(oneImageURL);
                             return (
-                              <img key={index} src={oneImageURL} alt={altMsg} />
+                              <div className='feature-image'>
+                                <img
+                                  key={index}
+                                  src={oneImageURL}
+                                  alt={altMsg}
+                                />
+                              </div>
                             );
                           }
                         )}
@@ -129,14 +134,18 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
               currentProject.project_design_repeater.map((oneDesign, index) => {
                 return (
                   <div key={index} className='design-fields'>
-                    <h4>{oneDesign.project_design_title}</h4>
-                    <p>{oneDesign.project_design_content}</p>
+                    <div className='design-content'>
+                      <h4>{oneDesign.project_design_title}</h4>
+                      <p>{oneDesign.project_design_content}</p>
+                    </div>
                     {oneDesign.project_design_gallery &&
                       oneDesign.project_design_gallery.map(
                         (oneImageURL, index) => {
                           let altMsg = getAlt(oneImageURL);
                           return (
-                            <img key={index} src={oneImageURL} alt={altMsg} />
+                            <div key={index} className='design-image'>
+                              <img src={oneImageURL} alt={altMsg} />
+                            </div>
                           );
                         }
                       )}

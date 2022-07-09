@@ -1,7 +1,7 @@
 .main-nav {
   position: fixed;
   right: 1rem;
-  top: 1.25rem;
+  top: 1.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,24 +15,25 @@
     justify-content: space-around;
     align-items: center;
     width: 0;
-    opacity: 0;
     pointer-events: none;
     transition: width 0.25s ease-in-out;
+
     li {
       a {
         color: $white;
         text-transform: uppercase;
+        display: none;
       }
     }
   }
   &.nav-open {
     background-color: $black;
     ul {
-      opacity: 1;
       width: 10rem;
       pointer-events: unset;
       li {
         a {
+          display: unset;
           text-decoration: underline solid transparent;
           transition: text-decoration 0.25s ease-out;
           &:hover,

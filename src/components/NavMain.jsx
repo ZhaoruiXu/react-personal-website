@@ -7,12 +7,12 @@ export default function NavMain() {
   return (
     <nav className={`main-nav ${isNavOpen ? "nav-open" : ""}`}>
       <ul>
-        <li onClick={e => e.target.blur()}>
+        <li onClick={() => setIsNavOpen(false)}>
           <NavLink to='/' tabIndex={isNavOpen ? 0 : -1}>
             Project
           </NavLink>
         </li>
-        <li onClick={e => e.target.blur()}>
+        <li onClick={() => setIsNavOpen(false)}>
           <NavLink to='/about' tabIndex={isNavOpen ? 0 : -1}>
             About
           </NavLink>

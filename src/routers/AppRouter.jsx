@@ -37,9 +37,9 @@ function AppRouter() {
         });
 
         response_about.data && setAboutContent(response_about.data.acf);
-        console.log(response_about.data.acf);
-        response_project.data && setProjectContent(response_project.data);
 
+        response_project.data && setProjectContent(response_project.data);
+        console.log(response_project.data);
         response_contact.data && setContactContent(response_contact.data.acf);
 
         setIsLoaded(true);

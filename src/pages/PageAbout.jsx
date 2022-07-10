@@ -16,10 +16,12 @@ export default function PageAbout({ aboutContent, isLoaded }) {
           <h2>{aboutContent.about_my_name}</h2>
           <h3 className='about-my-title'>{aboutContent.about_my_title}</h3>
           <div className='about-my-illustration'>
-            <img
-              src={aboutContent.about_my_illustration.sizes.large}
-              alt={aboutContent.about_my_illustration.caption}
-            />
+            {aboutContent.about_my_illustration.sizes.large && (
+              <img
+                src={aboutContent.about_my_illustration.sizes.large}
+                alt={aboutContent.about_my_illustration.caption}
+              />
+            )}
           </div>
           <div className='about-skill'>
             <div className='about-skill-wrapper'>

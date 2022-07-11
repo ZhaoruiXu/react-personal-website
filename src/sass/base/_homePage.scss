@@ -9,26 +9,21 @@
     }
     .about-sentences {
       height: 30px;
-      // height: 7vw;
       overflow: hidden;
       line-height: 100%;
       margin: 2.5rem 0 2rem 0;
       p {
         color: $light-grey;
-        // font-size: 7vw;
         font-weight: 400;
         text-transform: capitalize;
         font-family: $font-large-text;
       }
       & > div > p {
         padding: 4px;
-        // padding: 1vw 4vw;
         font-size: clamp(1rem, 7vw, 1.8rem);
 
         height: 45px;
         margin-bottom: 45px;
-        // height: 3.5vw;
-        // margin-bottom: 3.5vw;
         display: block;
       }
 
@@ -81,12 +76,12 @@
       font-size: 0.75rem;
       transition: all 0.4s;
       cursor: pointer;
-      border: 1px solid $light-grey;
+      border: 1px solid $medium-grey;
       border-radius: 10rem;
       width: 6.25rem;
       padding: 0.5rem 0;
       p {
-        color: $light-grey;
+        color: $medium-grey;
         text-transform: uppercase;
         cursor: pointer;
         display: inline-block;
@@ -119,9 +114,9 @@
       display: block;
       margin: 0 auto;
       padding: 0.3rem 0.7rem;
-      border: 1px solid $light-grey;
+      border: 1px solid $medium-grey;
       border-radius: 10rem;
-      color: $light-grey;
+      color: $medium-grey;
       background-color: transparent;
       font-size: 0.75rem;
       text-align: center;

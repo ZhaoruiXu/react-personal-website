@@ -10,11 +10,6 @@
     img {
       width: 100%;
       object-fit: fill;
-      transition: transform 0.5s ease-in-out;
-    }
-    &:hover img {
-      transform: scale(1.05);
-      transition: transform 2.25s ease-out;
     }
   }
   .project-content {
@@ -31,7 +26,7 @@
       p {
         font-size: 0.85rem;
         font-weight: 500;
-        color: $light-grey;
+        color: $medium-grey;
         font-family: $font-reading-text;
         span {
           margin: 0 0.25rem;
@@ -40,7 +35,8 @@
     }
     .project-description {
       font-size: 1rem;
-      color: $dark-grey;
+      font-weight: 500;
+      color: $black;
       margin-top: 0.5rem;
     }
     .project-links {
@@ -51,7 +47,7 @@
         a {
           font-size: 0.9rem;
           font-weight: 500;
-          color: $light-grey;
+          color: $medium-grey;
           display: inline-block;
           position: relative;
           transition: color 0.35s ease 0.2s;
@@ -98,10 +94,22 @@
     }
     .project-card-wrapper {
       width: 70%;
+      .project-image {
+        img {
+          transition: transform 0.5s ease-in-out;
+        }
+        &:hover img {
+          transform: scale(1.05);
+          transition: transform 2.25s ease-out;
+        }
+      }
       .project-content {
         padding: 0.35rem 0.25rem;
         .project-links {
           justify-content: flex-start;
+        }
+        .project-description {
+          font-weight: 400;
         }
       }
     }
@@ -144,7 +152,7 @@
           }
           .project-description {
             font-size: clamp(0.9rem, 1.2vw, 1.75rem);
-            font-weight: 500;
+
             margin-top: 0.75rem;
           }
           .project-links {

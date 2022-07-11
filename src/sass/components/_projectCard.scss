@@ -6,7 +6,7 @@
   .project-image {
     cursor: pointer;
     overflow: hidden;
-    aspect-ratio: 1.7;
+    // aspect-ratio: 1.7;
     img {
       width: 100%;
       object-fit: fill;
@@ -20,18 +20,18 @@
   .project-content {
     padding: 0.35rem 1.35rem;
     h3 {
-      font-size: 1.65rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      color: $dark-grey;
+      color: $black;
       font-family: $font-reading-text;
     }
     .project-tools {
       display: flex;
       flex-wrap: wrap;
       p {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         font-weight: 500;
-        color: $lightest-grey;
+        color: $light-grey;
         font-family: $font-reading-text;
         span {
           margin: 0 0.25rem;
@@ -39,8 +39,8 @@
       }
     }
     .project-description {
-      font-size: 0.9rem;
-      color: $medium-grey;
+      font-size: 1rem;
+      color: $dark-grey;
       margin-top: 0.5rem;
     }
     .project-links {
@@ -51,7 +51,7 @@
         a {
           font-size: 0.9rem;
           font-weight: 500;
-          color: $lightest-grey;
+          color: $light-grey;
           display: inline-block;
           position: relative;
           transition: color 0.35s ease 0.2s;

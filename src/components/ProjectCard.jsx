@@ -1,4 +1,4 @@
-import { getAlt, FEATURED } from "../globals/global";
+import { getAlt, FEATURED, FUN } from "../globals/global";
 import { Link } from "react-router-dom";
 
 export default function ProjectCard({ data }) {
@@ -51,6 +51,16 @@ export default function ProjectCard({ data }) {
               {data["fwd-project-category"][0] === FEATURED && (
                 <li>
                   <Link to={`/project/${data.slug}`}>Learn More</Link>
+                </li>
+              )}
+              {data["fwd-project-category"][0] === FUN && (
+                <li>
+                  <a
+                    href={data.acf.links[0].github_link}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    GitHub
+                  </a>
                 </li>
               )}
             </ul>

@@ -18,6 +18,19 @@
         margin-left: 2rem;
         margin-bottom: 1.25rem;
       }
+      @media (min-width: $large-viewport-breakpoint) {
+        & {
+          font-weight: 600;
+          font-size: clamp(0.75rem, 4vw, 3.5rem);
+        }
+        &:nth-child(2) {
+          margin-left: 2rem;
+        }
+        &:nth-last-child(2) {
+          margin-left: 4rem;
+          margin-bottom: 1.25rem;
+        }
+      }
     }
     .social-media {
       margin-left: 3.25rem;
@@ -36,6 +49,17 @@
           width: clamp(0.75rem, 6vw, 1.75rem);
           height: auto;
           transition: fill 0.15s ease-out;
+        }
+      }
+      @media (min-width: $large-viewport-breakpoint) {
+        margin-left: 6.25rem;
+        column-gap: clamp(1.75rem, 2vw, 2.5rem);
+
+        a {
+          svg {
+            width: clamp(1.75rem, 2vw, 2.25rem);
+            height: auto;
+          }
         }
       }
     }

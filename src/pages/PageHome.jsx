@@ -6,7 +6,6 @@ import ProjectCard from "../components/ProjectCard";
 export default function PageHome({ aboutContent, projectContent, isLoaded }) {
   const [displayProjects, setDisplayProjects] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);
-  const [showMoreLessBtnDelay, setShowMoreLessBtnDelay] = useState(false);
 
   useEffect(() => {
     if (projectContent) {
@@ -15,16 +14,6 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
       );
       setDisplayProjects(filteredProjects);
     }
-
-    // to prevent flashing button between movie card loads
-    setShowMoreLessBtnDelay(false);
-    const timer = setTimeout(() => {
-      setShowMoreLessBtnDelay(true);
-    }, 700);
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, [projectContent]);
 
   const handleShowMoreProject = () => {
@@ -77,7 +66,7 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
             return <ProjectCard key={index} data={oneProject} />;
           })}
 
-        {isLoaded && showMoreLessBtnDelay && (
+        {isLoaded && (
           <button
             className='show-more-less-btn'
             onClick={handleShowMoreProject}>

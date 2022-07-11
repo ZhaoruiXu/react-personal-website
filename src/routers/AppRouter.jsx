@@ -7,6 +7,7 @@ import { appTitle, api, params, params_project } from "../globals/global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Contact from "../components/Contact";
+import ScrollToTop from "../components/ScrollToTop";
 
 // Pages
 import PageHome from "../pages/PageHome";
@@ -62,53 +63,55 @@ function AppRouter() {
 
   return (
     <BrowserRouter basename='/personal-portfolio'>
-      <a href='#site-main' className='screen-reader-text'>
-        Skip to main page
-      </a>
-      <div className='wrapper'>
-        <Header />
-        <main id='site-main'>
-          <Routes>
-            <Route
-              path='/'
-              element={
-                <PageHome
-                  aboutContent={aboutContent}
-                  projectContent={projectContent}
-                  isLoaded={isLoaded}
-                />
-              }
-            />
-            <Route
-              path='/about'
-              element={
-                <PageAbout aboutContent={aboutContent} isLoaded={isLoaded} />
-              }
-            />
-            <Route
-              path='/project/:slug'
-              element={
-                <PageIndividualProject
-                  projectContent={projectContent}
-                  isLoaded={isLoaded}
-                />
-              }
-            />
-            <Route
-              path='*'
-              element={
-                <PageHome
-                  aboutContent={aboutContent}
-                  projectContent={projectContent}
-                  isLoaded={isLoaded}
-                />
-              }
-            />
-          </Routes>
-          <Contact contactContent={contactContent} />
-        </main>
-        <Footer />
-      </div>
+      <ScrollToTop>
+        <a href='#site-main' className='screen-reader-text'>
+          Skip to main page
+        </a>
+        <div className='wrapper'>
+          <Header />
+          <main id='site-main'>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <PageHome
+                    aboutContent={aboutContent}
+                    projectContent={projectContent}
+                    isLoaded={isLoaded}
+                  />
+                }
+              />
+              <Route
+                path='/about'
+                element={
+                  <PageAbout aboutContent={aboutContent} isLoaded={isLoaded} />
+                }
+              />
+              <Route
+                path='/project/:slug'
+                element={
+                  <PageIndividualProject
+                    projectContent={projectContent}
+                    isLoaded={isLoaded}
+                  />
+                }
+              />
+              <Route
+                path='*'
+                element={
+                  <PageHome
+                    aboutContent={aboutContent}
+                    projectContent={projectContent}
+                    isLoaded={isLoaded}
+                  />
+                }
+              />
+            </Routes>
+            <Contact contactContent={contactContent} />
+          </main>
+          <Footer />
+        </div>
+      </ScrollToTop>
     </BrowserRouter>
   );
 }

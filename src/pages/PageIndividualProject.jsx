@@ -98,7 +98,10 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
             </div>
           </article>
           <article className='project-features'>
-            <h3>{currentProject.project_feature_header}</h3>
+            <h3>
+              {currentProject.project_feature_repeater &&
+                currentProject.project_feature_header}
+            </h3>
             {currentProject.project_feature_repeater &&
               currentProject.project_feature_repeater.map(
                 (oneFeature, index) => {

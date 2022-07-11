@@ -140,26 +140,26 @@
         .project-content-wrapper {
           width: auto;
           h3 {
-            font-size: clamp(1.65rem, 3vw, 2.5rem);
+            font-size: clamp(2.125rem, 3vw, 3rem);
+            margin-bottom: 0.25rem;
           }
           .project-tools {
             li {
               p {
-                font-size: clamp(0.75rem, 1vw, 1.5rem);
+                font-size: clamp(1rem, 1vw, 1.5rem);
                 font-weight: 400;
               }
             }
           }
           .project-description {
-            font-size: clamp(0.9rem, 1.2vw, 1.75rem);
-
-            margin-top: 0.75rem;
+            font-size: clamp(1.25rem, 1.2vw, 1.75rem);
+            margin-top: 1rem;
           }
           .project-links {
-            margin-top: 1.25rem;
+            margin-top: 1.75rem;
             li {
               a {
-                font-size: clamp(0.9rem, 1.123vw, 1.5rem);
+                font-size: clamp(1.25rem, 1.2vw, 1.75rem);
                 font-weight: 400;
               }
             }

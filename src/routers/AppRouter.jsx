@@ -62,7 +62,7 @@ function AppRouter() {
   }, []);
 
   return (
-    <BrowserRouter basename='/personal-portfolio'>
+    <BrowserRouter>
       <ScrollToTop>
         <a href='#site-main' className='screen-reader-text'>
           Skip to main page

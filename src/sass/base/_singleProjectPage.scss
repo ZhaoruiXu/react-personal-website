@@ -4,7 +4,7 @@
     font-size: 3.5rem;
   }
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
   }
@@ -17,7 +17,7 @@
     font-weight: 500;
   }
   article {
-    margin: 2rem 0;
+    margin: 2.25rem 0;
   }
   .detail-page-images-wrapper {
     margin-top: 2rem;
@@ -80,7 +80,8 @@
     margin-top: 5rem;
     .more-projects-header {
       text-transform: uppercase;
-      font-size: 2rem;
+      font-family: $font-large-text;
+      font-size: clamp(2.25rem, 6vw, 3.5rem);
       font-weight: 900;
     }
     .project-content {
@@ -98,7 +99,7 @@
       margin: 3rem 0;
     }
     h3 {
-      font-size: clamp(1.5rem, 3vw, 1.75rem);
+      font-size: clamp(1.85rem, 4vw, 2rem);
     }
     h4 {
       font-size: clamp(1.25rem, 2.5vw, 1.35rem);
@@ -167,7 +168,7 @@
       margin-top: 8rem;
       .more-projects-header {
         grid-area: 1/1/2/3;
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(3rem, 5vw, 5rem);
       }
     }
   }
@@ -180,14 +181,17 @@
       font-size: clamp(5.25rem, 12.5vw, 6.25rem);
     }
     h3 {
-      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-size: clamp(2rem, 3.25vw, 2.5rem);
     }
     h4 {
-      font-size: clamp(1.35rem, 3vw, 1.5rem);
+      font-size: clamp(1.35rem, 3vw, 1.65rem);
     }
     p,
     li {
       font-size: clamp(1.125rem, 2.5vw, 1.2rem);
+    }
+    article {
+      margin: 2.75rem 0;
     }
     .detail-page-images-wrapper {
       margin: 0;
@@ -201,9 +205,10 @@
         column-gap: 5rem;
         grid-template-columns: 1fr 2fr;
         align-items: center;
+        margin: 2rem 0 5rem 0;
         .feature-content {
           p {
-            font-size: clamp(0.9em, 1.5vw, 1.025rem);
+            font-size: clamp(0.9em, 1.5vw, 1.125rem);
             margin-top: 1.5rem;
           }
         }

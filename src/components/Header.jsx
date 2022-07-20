@@ -5,7 +5,6 @@ import Logo from "../components/Logo";
 export default function Header() {
   return (
     <header>
-      {/* <img className='logo' src={logo} alt='logo' /> */}
       <Logo />
       <NavMain />
     </header>

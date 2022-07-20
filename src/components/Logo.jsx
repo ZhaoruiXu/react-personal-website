@@ -3,18 +3,8 @@ import { useRef } from "react";
 
 export default function Logo() {
   const logoRef = useRef(null);
-
-  const handleLogoClick = () => {
-    logoRef.current.blur();
-    console.log(logoRef.current);
-  };
-
   return (
-    <Link
-      className='logo-link'
-      to={`/`}
-      ref={logoRef}
-      onFocus={handleLogoClick}>
+    <Link className='logo-link' to={`/`} ref={logoRef}>
       <svg
         id='Layer_1'
         xmlns='http://www.w3.org/2000/svg'

@@ -62,7 +62,6 @@
   .project-features {
     .feature-fields {
       margin: 1rem 0 3rem 0;
-
       .feature-image {
         margin: 0.75rem 0;
       }
@@ -86,6 +85,11 @@
     }
     .project-content {
       padding: 0.5rem 0.25rem;
+      .project-content-wrapper {
+        .project-description {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -229,6 +233,25 @@
           .project-content {
             display: block;
             padding: 0.5rem 0.25rem;
+            .project-content-wrapper {
+              h3 {
+                font-size: clamp(1.25rem, 3vw, 2.25rem);
+              }
+              .project-tools {
+                li {
+                  p {
+                    font-size: clamp(0.85rem, 1vw, 1.125rem);
+                  }
+                }
+              }
+              .project-links {
+                li {
+                  a {
+                    font-size: clamp(1rem, 1vw, 1.125rem);
+                  }
+                }
+              }
+            }
           }
         }
       }

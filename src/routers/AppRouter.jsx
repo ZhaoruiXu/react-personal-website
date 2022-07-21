@@ -7,7 +7,7 @@ import { appTitle, api, params, params_project } from "../globals/global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Contact from "../components/Contact";
-import ScrollToTop from "../components/ScrollToTop";
+import AnimatedRoutes from "../components/AnimatedRoutes";
 import LoadingScreen from "../components/LoadingScreen";
 
 // Pages
@@ -21,6 +21,8 @@ function AppRouter() {
   const [contactContent, setContactContent] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [playLoadingAnimation, setPlayLoadingAnimation] = useState(true);
+
+  // const location = useLocation();
 
   useEffect(() => {
     document.title = `${appTitle}`;
@@ -60,20 +62,21 @@ function AppRouter() {
       }
     };
 
-    const timer = setTimeout(() => {
-      setPlayLoadingAnimation(false);
-    }, 2000);
-
     fetchHomeContent();
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
+
+  const handleLoadingAnimation = bool => {
+    setPlayLoadingAnimation(bool);
+    if (bool === true) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  };
 
   return (
     <BrowserRouter>
-      <ScrollToTop>
+      <AnimatedRoutes handleLoadingAnimation={handleLoadingAnimation}>
         <a href='#site-main' className='screen-reader-text'>
           Skip to main page
         </a>
@@ -125,7 +128,7 @@ function AppRouter() {
           </main>
           <Footer isLoaded={isLoaded} />
         </div>
-      </ScrollToTop>
+      </AnimatedRoutes>
     </BrowserRouter>
   );
 }

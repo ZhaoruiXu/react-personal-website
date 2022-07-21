@@ -40,10 +40,10 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
           <h1 className='screen-reader-text'>single project page for {slug}</h1>
           <h2>{currentProject.project_title}</h2>
           {currentProject.detail_page_images.map((oneImageURL, index) => {
-            let altMsg = getAlt(oneImageURL);
+            const altMsg = getAlt(oneImageURL);
             return (
-              <div className='detail-page-images-wrapper'>
-                <img key={index} src={oneImageURL} alt={altMsg} />
+              <div key={index} className='detail-page-images-wrapper'>
+                <img src={oneImageURL} alt={altMsg} />
               </div>
             );
           })}
@@ -80,11 +80,8 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
               <ul className='link-list'>
                 {Object.keys(currentProject.links[0]).map((oneLink, index) => {
                   return (
-                    <li>
-                      <a
-                        key={index}
-                        href={currentProject.links[0][oneLink]}
-                        target='_'>
+                    <li key={index}>
+                      <a href={currentProject.links[0][oneLink]} target='_'>
                         {oneLink === "github_link" ? (
                           <GitHubLogo />
                         ) : (
@@ -114,14 +111,10 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
                       {oneFeature.project_feature_gallery &&
                         oneFeature.project_feature_gallery.map(
                           (oneImageURL, index) => {
-                            let altMsg = getAlt(oneImageURL);
+                            const altMsg = getAlt(oneImageURL);
                             return (
-                              <div className='feature-image'>
-                                <img
-                                  key={index}
-                                  src={oneImageURL}
-                                  alt={altMsg}
-                                />
+                              <div key={index} className='feature-image'>
+                                <img src={oneImageURL} alt={altMsg} />
                               </div>
                             );
                           }
@@ -147,7 +140,7 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
                     {oneDesign.project_design_gallery &&
                       oneDesign.project_design_gallery.map(
                         (oneImageURL, index) => {
-                          let altMsg = getAlt(oneImageURL);
+                          const altMsg = getAlt(oneImageURL);
                           return (
                             <div key={index} className='design-image'>
                               <img src={oneImageURL} alt={altMsg} />

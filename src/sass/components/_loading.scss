@@ -3,8 +3,7 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  z-index: 1000;
-  // transition: height 1.5s linear;
+  z-index: 100;
   .loading-animation {
     left: 50%;
     top: 50%;
@@ -20,6 +19,5 @@
         height: 0;
       }
     }
-    // display: none;
   }
 }

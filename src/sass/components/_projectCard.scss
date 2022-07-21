@@ -120,6 +120,7 @@
     display: block;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 10rem;
     .project-card-wrapper {
       width: 100%;
       display: grid;
@@ -135,26 +136,26 @@
         .project-content-wrapper {
           width: auto;
           h3 {
-            font-size: clamp(2.125rem, 3vw, 3rem);
-            margin-bottom: 0.25rem;
+            font-size: clamp(2rem, 2.5vw, 3rem);
+            margin-bottom: 0.5rem;
           }
           .project-tools {
             li {
               p {
-                font-size: clamp(1rem, 1vw, 1.5rem);
+                font-size: clamp(1rem, 1.25vw, 1.125rem);
                 font-weight: 400;
               }
             }
           }
           .project-description {
-            font-size: clamp(1.25rem, 1.2vw, 1.75rem);
+            font-size: clamp(1.125rem, 1.25vw, 1.35rem);
             margin-top: 1rem;
           }
           .project-links {
             margin-top: 1.75rem;
             li {
               a {
-                font-size: clamp(1.25rem, 1.2vw, 1.75rem);
+                font-size: clamp(1.125rem, 1.25vw, 1.35rem);
                 font-weight: 400;
               }
             }

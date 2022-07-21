@@ -4,6 +4,7 @@ import { useEffect } from "react";
 export default function PageAbout({ aboutContent, isLoaded }) {
   useEffect(() => {
     document.title = `About ${appTitle}`;
+    console.log("about page");
   }, []);
 
   return (

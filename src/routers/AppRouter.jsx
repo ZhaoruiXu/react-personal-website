@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Contact from "../components/Contact";
 import ScrollToTop from "../components/ScrollToTop";
+import LoadingScreen from "../components/LoadingScreen";
 
 // Pages
 import PageHome from "../pages/PageHome";
@@ -19,6 +20,7 @@ function AppRouter() {
   const [projectContent, setProjectContent] = useState(false);
   const [contactContent, setContactContent] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [playLoadingAnimation, setPlayLoadingAnimation] = useState(true);
 
   useEffect(() => {
     document.title = `${appTitle}`;
@@ -58,7 +60,15 @@ function AppRouter() {
       }
     };
 
+    const timer = setTimeout(() => {
+      setPlayLoadingAnimation(false);
+    }, 2000);
+
     fetchHomeContent();
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -68,7 +78,11 @@ function AppRouter() {
           Skip to main page
         </a>
         <div className='wrapper'>
-          <Header />
+          <LoadingScreen
+            playLoadingAnimation={playLoadingAnimation}
+            isLoaded={isLoaded}
+          />
+          <Header isLoaded={isLoaded} />
           <main id='site-main'>
             <Routes>
               <Route
@@ -109,7 +123,7 @@ function AppRouter() {
             </Routes>
             <Contact contactContent={contactContent} />
           </main>
-          <Footer />
+          <Footer isLoaded={isLoaded} />
         </div>
       </ScrollToTop>
     </BrowserRouter>

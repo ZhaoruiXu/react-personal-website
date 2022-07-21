@@ -22,8 +22,6 @@ function AppRouter() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [playLoadingAnimation, setPlayLoadingAnimation] = useState(true);
 
-  // const location = useLocation();
-
   useEffect(() => {
     document.title = `${appTitle}`;
 
@@ -44,7 +42,7 @@ function AppRouter() {
         response_about.data && setAboutContent(response_about.data.acf);
 
         response_project.data && setProjectContent(response_project.data);
-        console.log(response_project.data);
+
         response_contact.data && setContactContent(response_contact.data.acf);
 
         setIsLoaded(true);
@@ -67,6 +65,7 @@ function AppRouter() {
 
   const handleLoadingAnimation = bool => {
     setPlayLoadingAnimation(bool);
+
     if (bool === true) {
       document.body.style.overflowY = "hidden";
     } else {

@@ -3,7 +3,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 export default function LoadingScreen({ playLoadingAnimation, isLoaded }) {
   if (!isLoaded || playLoadingAnimation) {
     return (
-      <div className='loading-animation-wrapper'>
+      <div className={`loading-animation-wrapper ${!isLoaded ? "close" : ""}`}>
         <PuffLoader
           className='loading-animation'
           cssOverride={{

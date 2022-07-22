@@ -31,6 +31,14 @@
       overflow: hidden;
       line-height: 100%;
       margin: 2.5rem 0 2rem 0;
+      transition: transform 0.65s ease-in-out 0.5s,
+        opacity 0.75s ease-in-out 0.75s;
+      transform: translateX(-20%);
+      opacity: 0;
+      &.animate {
+        transform: translateX(0);
+        opacity: 1;
+      }
       p {
         color: $light-grey;
         font-weight: 400;
@@ -45,11 +53,9 @@
         margin-bottom: 45px;
         display: block;
       }
-
       & div:first-child {
         animation: slide-up 15s ease infinite;
       }
-
       @keyframes slide-up {
         0% {
           transform: translateY(22.5px);
@@ -99,6 +105,14 @@
       border-radius: 10rem;
       width: 6.25rem;
       padding: 0.5rem 0;
+      transition: transform 0.65s ease-in-out 0.5s,
+        opacity 0.75s ease-in-out 0.75s;
+      transform: translateX(20%);
+      opacity: 0;
+      &.animate {
+        transform: translateX(0);
+        opacity: 1;
+      }
       p {
         color: $medium-grey;
         text-transform: uppercase;

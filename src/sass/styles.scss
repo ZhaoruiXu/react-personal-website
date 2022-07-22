@@ -1,20 +1,11 @@
-// Google fonts
-@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Inconsolata:wght@300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600&display=swap");
+// Abstracts style
+@import "./abstracts/abstracts";
 
-// General styles
-@import "./base/normalize";
-@import "./base/variables";
-@import "./base/typography";
-@import "./base/layout";
-@import "./base/aboutPage";
-@import "./base/homePage";
-@import "./base/singleProjectPage";
+// Base style
+@import "./base/base";
 
 // Components style
-@import "./components/header";
-@import "./components/footer";
-@import "./components/navMain";
-@import "./components/menuBtn";
-@import "./components/projectCard";
-@import "./components/contact";
-@import "./components/loading";
+@import "./components/components";
+
+// Pages style
+@import "./pages/pages";

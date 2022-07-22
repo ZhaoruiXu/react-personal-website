@@ -56,7 +56,10 @@ export default function PageHome({
               );
             }
           )}
-          <div className='about-sentences'>
+          <div
+            className={`about-sentences ${
+              !isLoaded || playLoadingAnimation ? "" : "animate"
+            }`}>
             <div>
               {aboutContent.about_opening_sentence_repeater.map(
                 (sentence, index) => {
@@ -65,7 +68,11 @@ export default function PageHome({
               )}
             </div>
           </div>
-          <Link className='about-me-btn' to='/about'>
+          <Link
+            className={`about-me-btn ${
+              !isLoaded || playLoadingAnimation ? "" : "animate"
+            }`}
+            to='/about'>
             <p>About Me</p>
           </Link>
         </section>

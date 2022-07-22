@@ -37,7 +37,9 @@ export default function PageIndividualProject({
 
   return (
     <section
-      className='single-project-page-section'
+      className={`single-project-page-section ${
+        !isLoaded || playLoadingAnimation ? "" : "animate"
+      }`}
       style={{ minHeight: isLoaded ? "" : "100vh" }}>
       {currentProject && (
         <>

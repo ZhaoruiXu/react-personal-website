@@ -3,32 +3,44 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-export default function ProjectCard({ data }) {
+export default function ProjectCard({ data, isLoaded, playLoadingAnimation }) {
   const projectCardRef = useRef();
   const animation = useAnimation();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          animation.start({
-            y: 0,
-            opacity: [0, 0, 1],
-            transition: {
-              times: [0, 0.25, 1],
-              type: "tween",
-              duration: 0.75,
-              ease: "easeInOut",
-            },
-          });
-          observer.unobserve(projectCardRef.current);
-        }
-      },
-      { threshold: 0 }
-    );
-    observer.observe(projectCardRef.current);
-  }, [animation]);
+    let timer;
+
+    const observerFunc = () => {
+      const observer = new IntersectionObserver(
+        entries => {
+          const entry = entries[0];
+          if (entry.isIntersecting) {
+            animation.start({
+              y: 0,
+              opacity: [0, 0, 1],
+              transition: {
+                times: [0, 0.25, 1],
+                type: "tween",
+                duration: 0.75,
+                ease: "easeInOut",
+              },
+            });
+            observer.unobserve(projectCardRef.current);
+          }
+        },
+        { threshold: 0 }
+      );
+      observer.observe(projectCardRef.current);
+    };
+
+    if (isLoaded && !playLoadingAnimation) {
+      timer = setTimeout(() => observerFunc(), 500);
+    }
+    console.log("test", isLoaded, playLoadingAnimation);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [animation, playLoadingAnimation, isLoaded]);
 
   return (
     <motion.article

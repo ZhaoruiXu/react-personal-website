@@ -5,7 +5,11 @@ import ProjectCard from "../components/ProjectCard";
 import GitHubLogo from "../components/GitHubLogo";
 import LiveSiteLogo from "../components/LiveSiteLogo";
 
-export default function PageIndividualProject({ projectContent, isLoaded }) {
+export default function PageIndividualProject({
+  projectContent,
+  isLoaded,
+  playLoadingAnimation,
+}) {
   const [currentProject, setCurrentProject] = useState(false);
   const [moreProjects, setMoreProjects] = useState(false);
   const { slug } = useParams();
@@ -163,7 +167,14 @@ export default function PageIndividualProject({ projectContent, isLoaded }) {
             <h3 className='more-projects-header'>More Projects</h3>
             {moreProjects &&
               moreProjects.map((oneProject, index) => {
-                return <ProjectCard key={index} data={oneProject} />;
+                return (
+                  <ProjectCard
+                    key={index}
+                    data={oneProject}
+                    isLoaded={isLoaded}
+                    playLoadingAnimation={playLoadingAnimation}
+                  />
+                );
               })}
           </section>
         </>

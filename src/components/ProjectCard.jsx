@@ -11,7 +11,6 @@ export default function ProjectCard({ data }) {
     const observer = new IntersectionObserver(
       entries => {
         const entry = entries[0];
-        // console.log(data.acf.project_title, entry);
         if (entry.isIntersecting) {
           animation.start({
             y: 0,
@@ -19,14 +18,14 @@ export default function ProjectCard({ data }) {
             transition: {
               times: [0, 0.25, 1],
               type: "tween",
-              duration: 0.65,
+              duration: 0.75,
               ease: "easeInOut",
             },
           });
           observer.unobserve(projectCardRef.current);
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0 }
     );
     observer.observe(projectCardRef.current);
   }, [animation]);
@@ -50,7 +49,10 @@ export default function ProjectCard({ data }) {
             />
           </div>
         )}
-        <div className='project-content'>
+        <motion.div
+          className='project-content'
+          initial={{ y: "15vh", opacity: 0 }}
+          animate={animation}>
           <div className='project-content-wrapper'>
             <h3>{data.acf.project_title}</h3>
             <ul className='project-tools'>
@@ -97,7 +99,7 @@ export default function ProjectCard({ data }) {
               )}
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.article>
   );

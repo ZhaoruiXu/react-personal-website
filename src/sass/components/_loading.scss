@@ -2,6 +2,7 @@
   background-color: $black;
   position: fixed;
   inset: 0;
+  overflow: hidden;
   z-index: 100;
   .loading-animation {
     left: 50%;

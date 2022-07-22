@@ -76,6 +76,7 @@
     text-transform: uppercase;
     justify-self: flex-end;
     transition: all 0.05s linear;
+    cursor: pointer;
     &:hover {
       background-color: transparent;
       color: $black;

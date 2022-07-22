@@ -1,10 +1,42 @@
 import { getAlt, FEATURED, FUN } from "../globals/global";
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 export default function ProjectCard({ data }) {
-  // const navigate = useNavigate();
+  const projectCardRef = useRef();
+  const animation = useAnimation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        // console.log(data.acf.project_title, entry);
+        if (entry.isIntersecting) {
+          animation.start({
+            y: 0,
+            opacity: [0, 0, 1],
+            transition: {
+              times: [0, 0.25, 1],
+              type: "tween",
+              duration: 0.65,
+              ease: "easeInOut",
+            },
+          });
+          observer.unobserve(projectCardRef.current);
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(projectCardRef.current);
+  }, [animation]);
+
   return (
-    <article className='project-card'>
+    <motion.article
+      className='project-card'
+      ref={projectCardRef}
+      animate={animation}
+      initial={{ y: "10vh", opacity: 0 }}>
       <div className='project-card-wrapper'>
         {data.acf.preview_page_image && (
           <div className='project-image'>
@@ -67,6 +99,6 @@ export default function ProjectCard({ data }) {
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

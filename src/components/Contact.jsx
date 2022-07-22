@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import GitHubLogo from "./GitHubLogo";
 import LinkedInLogo from "./LinkedInLogo";
+import { motion } from "framer-motion";
 
 export default function Contact({ contactContent }) {
   const [contactBtnMsg, setContactBtnMsg] = useState("email me");
@@ -48,7 +49,14 @@ export default function Contact({ contactContent }) {
             </a>
           </li>
         </ul>
-        <button
+        <motion.button
+          drag
+          dragConstraints={{
+            right: 0,
+            left: 0,
+            top: 0,
+            bottom: 0,
+          }}
           onClick={handleCopyEmail}
           onMouseEnter={() => setIsContactBtnEnter(true)}
           onMouseLeave={() => {
@@ -56,7 +64,7 @@ export default function Contact({ contactContent }) {
             setIsContactBtnEnter(false);
           }}>
           {contactBtnMsg}
-        </button>
+        </motion.button>
       </section>
     )
   );

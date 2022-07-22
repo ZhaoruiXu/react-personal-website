@@ -1,0 +1,18 @@
+@mixin translation-opacity-transition(
+  $transStar: translateX(-20%),
+  $transEnd: translateX(0),
+  $transDuration: 0.75s,
+  $transDelay: 0.5s,
+  $opacityDuration: 0.75s,
+  $opacityDelay: 0.75s
+) {
+  transform: $transStar;
+  opacity: 0;
+  transition: transform $transDuration ease-in-out $transDelay,
+    opacity $opacityDuration ease-in-out $opacityDelay;
+
+  &.animate {
+    transform: $transEnd;
+    opacity: 1;
+  }
+}

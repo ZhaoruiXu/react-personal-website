@@ -1,6 +1,8 @@
 import { appTitle, getAlt, FEATURED } from "../globals/global";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
+
 import ProjectCard from "../components/ProjectCard";
 import GitHubLogo from "../components/GitHubLogo";
 import LiveSiteLogo from "../components/LiveSiteLogo";

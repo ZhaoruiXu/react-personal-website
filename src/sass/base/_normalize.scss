@@ -382,6 +382,10 @@ ul {
   list-style-type: none;
 }
 
+.animate {
+  opacity: 0;
+}
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
   border: 0;

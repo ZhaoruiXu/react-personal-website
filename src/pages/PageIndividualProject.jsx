@@ -1,9 +1,9 @@
 import { appTitle, getAlt, FEATURED } from "../globals/global";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { motion, useAnimation } from "framer-motion";
 
 import ProjectCard from "../components/ProjectCard";
+import AnimationObserver from "../components/AnimationObserver";
 import GitHubLogo from "../components/GitHubLogo";
 import LiveSiteLogo from "../components/LiveSiteLogo";
 
@@ -23,51 +23,63 @@ export default function PageIndividualProject({
       const project = projectContent.filter(
         oneProject => oneProject.slug === slug
       );
-      setCurrentProject(project[0].acf);
 
-      const allOtherProjects = projectContent.filter(
+      const otherFeaturedProjects = projectContent.filter(
         oneProject =>
           oneProject.slug !== slug &&
           oneProject["fwd-project-category"][0] === FEATURED
       );
 
-      // Show up to two featured projects for preview
-      const filteredMoreProjects = allOtherProjects.slice(0, 2);
+      // Store the current project data
+      setCurrentProject(project[0].acf);
+
+      // Store up to two featured projects for more-projects section
+      const filteredMoreProjects = otherFeaturedProjects.slice(0, 2);
       setMoreProjects(filteredMoreProjects);
     }
   }, [projectContent, slug]);
 
   return (
     <section
-      className={`single-project-page-section ${
-        !isLoaded || playLoadingAnimation ? "" : "animate"
-      }`}
+      className='single-project-page-section'
       style={{ minHeight: isLoaded ? "" : "100vh" }}>
-      {currentProject && (
-        <>
+      {currentProject && !playLoadingAnimation && (
+        <AnimationObserver id={slug}>
           <h1 className='screen-reader-text'>single project page for {slug}</h1>
-          <h2>{currentProject.project_title}</h2>
+          <h2 className='animate fade-in-up animation-delay-500'>
+            {currentProject.project_title}
+          </h2>
           {currentProject.detail_page_images.map((oneImageURL, index) => {
             const altMsg = getAlt(oneImageURL);
             return (
-              <div key={index} className='detail-page-images-wrapper'>
+              <div
+                key={index}
+                className='detail-page-images-wrapper animate fade-in-up animation-delay-600'>
                 <img src={oneImageURL} alt={altMsg} />
               </div>
             );
           })}
           <article className='project-about'>
-            <h3>{currentProject.project_about_header}</h3>
-            <p>{currentProject.project_about_content}</p>
+            <h3 className='animate fade-in-up'>
+              {currentProject.project_about_header}
+            </h3>
+            <p className='animate fade-in-up animation-delay-300'>
+              {currentProject.project_about_content}
+            </p>
           </article>
           <article className='project-specs'>
-            <h3>{currentProject.project_specification_header}</h3>
+            <h3 className='animate fade-in-up'>
+              {currentProject.project_specification_header}
+            </h3>
             {currentProject.project_specification_items &&
               currentProject.project_specification_items.map(
                 (specItems, index) => {
                   return (
-                    <div key={index} className='project-specs-fields'>
+                    <div
+                      key={index}
+                      className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-300'>
                       <h4>{specItems.project_specification_item_title}</h4>
-                      <ul>
+                      <ul class>
                         {specItems.project_specification_item_repeater &&
                           specItems.project_specification_item_repeater.map(
                             (oneSpecItem, index) => {
@@ -83,7 +95,7 @@ export default function PageIndividualProject({
                   );
                 }
               )}
-            <div className='project-specs-fields'>
+            <div className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-300'>
               <h4>Links</h4>
               <ul className='link-list'>
                 {Object.keys(currentProject.links[0]).map((oneLink, index) => {
@@ -181,7 +193,7 @@ export default function PageIndividualProject({
                 );
               })}
           </section>
-        </>
+        </AnimationObserver>
       )}
     </section>
   );

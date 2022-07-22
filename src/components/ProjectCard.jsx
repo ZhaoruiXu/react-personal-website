@@ -14,6 +14,7 @@ export default function ProjectCard({ data, isLoaded, playLoadingAnimation }) {
       const observer = new IntersectionObserver(
         entries => {
           const entry = entries[0];
+          console.log("entry:", entry.target);
           if (entry.isIntersecting) {
             animation.start({
               y: 0,
@@ -36,7 +37,7 @@ export default function ProjectCard({ data, isLoaded, playLoadingAnimation }) {
     if (isLoaded && !playLoadingAnimation) {
       timer = setTimeout(() => observerFunc(), 500);
     }
-    console.log("test", isLoaded, playLoadingAnimation);
+
     return () => {
       clearTimeout(timer);
     };

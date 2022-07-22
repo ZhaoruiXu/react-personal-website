@@ -1,9 +1,9 @@
 .single-project-page-section {
   margin: 6rem 3.75vw;
-  @include translation-opacity-transition(
-    $transStar: translateY(2%),
-    $transEnd: translateY(0)
-  );
+  // @include translation-opacity-transition(
+  //   $transStar: translateY(2%),
+  //   $transEnd: translateY(0)
+  // );
   h2 {
     font-size: 3.5rem;
   }

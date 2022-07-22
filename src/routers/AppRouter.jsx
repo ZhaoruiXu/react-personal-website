@@ -94,6 +94,7 @@ function AppRouter() {
                     aboutContent={aboutContent}
                     projectContent={projectContent}
                     isLoaded={isLoaded}
+                    playLoadingAnimation={playLoadingAnimation}
                   />
                 }
               />
@@ -109,6 +110,7 @@ function AppRouter() {
                   <PageIndividualProject
                     projectContent={projectContent}
                     isLoaded={isLoaded}
+                    playLoadingAnimation={playLoadingAnimation}
                   />
                 }
               />

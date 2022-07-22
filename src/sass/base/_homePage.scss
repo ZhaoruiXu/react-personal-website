@@ -6,6 +6,13 @@
       font-size: clamp(55px, 17vw, 200px);
       font-weight: 500;
       line-height: 100%;
+      transform: translateX(-20%);
+      opacity: 0;
+      transition: all 0.35s ease-in-out 0.5s;
+      &.animate {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
     .about-sentences {
       height: 30px;

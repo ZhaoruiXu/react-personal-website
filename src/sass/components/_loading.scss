@@ -1,8 +1,7 @@
 .loading-animation-wrapper {
   background-color: $black;
-  position: absolute;
+  position: fixed;
   inset: 0;
-  overflow: hidden;
   z-index: 100;
   .loading-animation {
     left: 50%;

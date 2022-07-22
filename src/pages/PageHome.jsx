@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 
-export default function PageHome({ aboutContent, projectContent, isLoaded }) {
+export default function PageHome({
+  aboutContent,
+  projectContent,
+  isLoaded,
+  playLoadingAnimation,
+}) {
   const [displayProjects, setDisplayProjects] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);
 
@@ -40,7 +45,15 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
           <h1 className='screen-reader-text'>Project page</h1>
           {aboutContent.about_opening_sentence_header_repeater.map(
             (header, index) => {
-              return <h2 key={index}>{header.item}</h2>;
+              return (
+                <h2
+                  key={index}
+                  className={
+                    !isLoaded || playLoadingAnimation ? "" : "animate"
+                  }>
+                  {header.item}
+                </h2>
+              );
             }
           )}
           <div className='about-sentences'>
@@ -63,7 +76,14 @@ export default function PageHome({ aboutContent, projectContent, isLoaded }) {
         style={{ minHeight: displayProjects ? "" : "100vh" }}>
         {displayProjects &&
           displayProjects.map((oneProject, index) => {
-            return <ProjectCard key={index} data={oneProject} />;
+            return (
+              <ProjectCard
+                key={index}
+                data={oneProject}
+                isLoaded={isLoaded}
+                playLoadingAnimation={playLoadingAnimation}
+              />
+            );
           })}
 
         {isLoaded && (

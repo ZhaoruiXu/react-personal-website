@@ -26,12 +26,12 @@ export default function AnimationObserver({ children, id }) {
     const targetElements = animRef.current.querySelectorAll(`.animate`);
     targetElements.forEach((element, index) => {
       refs.current[index] = element;
-      element.style = { opacity: 0 };
+      element.style = {};
     });
 
     const options = {
       // rootMargin: "0px 0px -100px",
-      threshold: 1,
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver(entries => {

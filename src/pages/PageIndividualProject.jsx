@@ -46,7 +46,7 @@ export default function PageIndividualProject({
       {currentProject && !playLoadingAnimation && (
         <AnimationObserver id={slug}>
           <h1 className='screen-reader-text'>single project page for {slug}</h1>
-          <h2 className='animate fade-in-up animation-delay-500'>
+          <h2 className='animate fade-in-up animation-delay-300'>
             {currentProject.project_title}
           </h2>
           {currentProject.detail_page_images.map((oneImageURL, index) => {
@@ -54,21 +54,21 @@ export default function PageIndividualProject({
             return (
               <div
                 key={index}
-                className='detail-page-images-wrapper animate fade-in-up animation-delay-600'>
+                className='detail-page-images-wrapper animate fade-in-up animation-duration-1200 animation-delay-300'>
                 <img src={oneImageURL} alt={altMsg} />
               </div>
             );
           })}
           <article className='project-about'>
-            <h3 className='animate fade-in-up'>
+            <h3 className='animate fade-in-up animation-delay-300'>
               {currentProject.project_about_header}
             </h3>
-            <p className='animate fade-in-up animation-delay-300'>
+            <p className='animate fade-in-up animation-delay-500'>
               {currentProject.project_about_content}
             </p>
           </article>
           <article className='project-specs'>
-            <h3 className='animate fade-in-up'>
+            <h3 className='animate fade-in-up animation-delay-300'>
               {currentProject.project_specification_header}
             </h3>
             {currentProject.project_specification_items &&
@@ -77,7 +77,7 @@ export default function PageIndividualProject({
                   return (
                     <div
                       key={index}
-                      className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-300'>
+                      className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-500'>
                       <h4>{specItems.project_specification_item_title}</h4>
                       <ul class>
                         {specItems.project_specification_item_repeater &&
@@ -95,7 +95,7 @@ export default function PageIndividualProject({
                   );
                 }
               )}
-            <div className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-300'>
+            <div className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-500'>
               <h4>Links</h4>
               <ul className='link-list'>
                 {Object.keys(currentProject.links[0]).map((oneLink, index) => {
@@ -103,9 +103,15 @@ export default function PageIndividualProject({
                     <li key={index}>
                       <a href={currentProject.links[0][oneLink]} target='_'>
                         {oneLink === "github_link" ? (
-                          <GitHubLogo />
+                          <p>
+                            <GitHubLogo />
+                            <span>GitHub</span>
+                          </p>
                         ) : (
-                          <LiveSiteLogo />
+                          <p>
+                            <LiveSiteLogo />
+                            <span>Live Site</span>
+                          </p>
                         )}
                       </a>
                     </li>
@@ -115,7 +121,7 @@ export default function PageIndividualProject({
             </div>
           </article>
           <article className='project-features'>
-            <h3>
+            <h3 className='animate fade-in-up'>
               {currentProject.project_feature_repeater &&
                 currentProject.project_feature_header}
             </h3>
@@ -123,7 +129,9 @@ export default function PageIndividualProject({
               currentProject.project_feature_repeater.map(
                 (oneFeature, index) => {
                   return (
-                    <div key={index} className='feature-fields'>
+                    <div
+                      key={index}
+                      className='feature-fields animate fade-in-up'>
                       <div className='feature-content'>
                         <h4>{oneFeature.project_feature_title}</h4>
                         <p>{oneFeature.project_feature_content}</p>
@@ -145,24 +153,30 @@ export default function PageIndividualProject({
               )}
           </article>
           <article className='project-designs'>
-            <h3>
+            <h3 className='animate fade-in-up'>
               {currentProject.project_design_repeater &&
                 currentProject.project_design_header}
             </h3>
             {currentProject.project_design_repeater &&
               currentProject.project_design_repeater.map((oneDesign, index) => {
                 return (
-                  <div key={index} className='design-fields'>
+                  <div key={index}>
                     <div className='design-content'>
-                      <h4>{oneDesign.project_design_title}</h4>
-                      <p>{oneDesign.project_design_content}</p>
+                      <h4 className=' animate fade-in-up'>
+                        {oneDesign.project_design_title}
+                      </h4>
+                      <p className='animate fade-in-up animation-delay-300'>
+                        {oneDesign.project_design_content}
+                      </p>
                     </div>
                     {oneDesign.project_design_gallery &&
                       oneDesign.project_design_gallery.map(
                         (oneImageURL, index) => {
                           const altMsg = getAlt(oneImageURL);
                           return (
-                            <div key={index} className='design-image'>
+                            <div
+                              key={index}
+                              className='design-image animate fade-in-up animation-delay-300'>
                               <img src={oneImageURL} alt={altMsg} />
                             </div>
                           );
@@ -173,14 +187,18 @@ export default function PageIndividualProject({
               })}
           </article>
           <article className='project-reflection'>
-            <h3>
+            <h3 className='animate fade-in-up '>
               {currentProject.project_reflection_content &&
                 currentProject.project_reflection_header}
             </h3>
-            <p>{currentProject.project_reflection_content}</p>
+            <p className='animate fade-in-up animation-delay-300'>
+              {currentProject.project_reflection_content}
+            </p>
           </article>
           <section className='more-projects-preview'>
-            <h3 className='more-projects-header'>More Projects</h3>
+            <h3 className='more-projects-header animate fade-in-up'>
+              More Projects
+            </h3>
             {moreProjects &&
               moreProjects.map((oneProject, index) => {
                 return (

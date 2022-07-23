@@ -14,7 +14,6 @@ export default function ProjectCard({ data, isLoaded, playLoadingAnimation }) {
       const observer = new IntersectionObserver(
         entries => {
           const entry = entries[0];
-          console.log("entry:", entry.target);
           if (entry.isIntersecting) {
             animation.start({
               y: 0,
@@ -48,7 +47,7 @@ export default function ProjectCard({ data, isLoaded, playLoadingAnimation }) {
       className='project-card'
       ref={projectCardRef}
       animate={animation}
-      initial={{ y: "10vh", opacity: 0 }}>
+      initial={{ y: "5rem", opacity: 0 }}>
       <div className='project-card-wrapper'>
         {data.acf.preview_page_image && (
           <div className='project-image'>
@@ -64,7 +63,7 @@ export default function ProjectCard({ data, isLoaded, playLoadingAnimation }) {
         )}
         <motion.div
           className='project-content'
-          initial={{ y: "15vh", opacity: 0 }}
+          initial={{ y: "10rem", opacity: 0 }}
           animate={animation}>
           <div className='project-content-wrapper'>
             <h3>{data.acf.project_title}</h3>

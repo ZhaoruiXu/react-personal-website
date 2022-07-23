@@ -30,7 +30,6 @@ export default function AnimationObserver({ children, id }) {
     });
 
     const options = {
-      // rootMargin: "0px 0px -100px",
       threshold: 0.2,
     };
 

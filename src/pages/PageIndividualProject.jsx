@@ -79,7 +79,7 @@ export default function PageIndividualProject({
                       key={index}
                       className='project-specs-fields animate fade-in-up animation-duration-500 animation-delay-500'>
                       <h4>{specItems.project_specification_item_title}</h4>
-                      <ul class>
+                      <ul>
                         {specItems.project_specification_item_repeater &&
                           specItems.project_specification_item_repeater.map(
                             (oneSpecItem, index) => {

@@ -160,7 +160,7 @@ export default function PageIndividualProject({
             {currentProject.project_design_repeater &&
               currentProject.project_design_repeater.map((oneDesign, index) => {
                 return (
-                  <div key={index}>
+                  <div className='project-design-repeater-wrapper' key={index}>
                     <div className='design-content'>
                       <h4 className=' animate fade-in-up'>
                         {oneDesign.project_design_title}

@@ -31,7 +31,7 @@
   .project-specs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 1rem;
+    column-gap: 4rem;
     h3 {
       grid-area: 1/1/2/3;
     }
@@ -44,24 +44,23 @@
         color: $black;
       }
       .link-list {
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.625rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: flex-start;
+        row-gap: 0.5rem;
         li {
           a {
             p {
-              display: grid;
-              grid-template-columns: 1fr 3fr;
+              display: flex;
               align-items: center;
               column-gap: 0.5rem;
-              max-width: 8rem;
-              &:hover,
-              &:focus {
-                text-decoration: underline;
-                color: $lightest-grey;
-                svg {
-                  fill: $lightest-grey;
-                }
+            }
+            &:hover p,
+            &:focus p {
+              text-decoration: underline;
+              color: $lightest-grey;
+              svg {
+                fill: $lightest-grey;
               }
             }
           }
@@ -78,10 +77,12 @@
     }
   }
   .project-designs {
-    .design-fields {
-      margin: 1rem 0;
+    .project-design-repeater-wrapper {
       .design-image {
         margin: 0.75rem 0;
+      }
+      .design-image:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -143,7 +144,7 @@
     }
     .project-specs {
       grid-template-columns: repeat(3, 1fr);
-      column-gap: 2rem;
+      column-gap: 1rem;
       h3 {
         grid-area: 1/1/2/4;
       }
@@ -173,6 +174,11 @@
         &:nth-child(6) {
           grid-area: 2/3/3/4;
         }
+        .link-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 0.625rem;
+        }
       }
     }
     .more-projects-preview {
@@ -190,7 +196,7 @@
 
 @media (min-width: $large-viewport-breakpoint) {
   .single-project-page-section {
-    margin: 8rem 20vw;
+    margin: 8rem 15vw;
     h2 {
       font-size: clamp(5.25rem, 12.5vw, 6.25rem);
     }
@@ -211,7 +217,7 @@
       margin: 0;
     }
     .project-specs {
-      column-gap: 3rem;
+      column-gap: 2rem;
     }
     .project-features {
       .feature-fields {
@@ -235,6 +241,26 @@
         }
       }
     }
+
+    .project-designs {
+      position: relative;
+      .project-design-repeater-wrapper {
+        display: grid;
+        justify-items: flex-start;
+        align-items: flex-start;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+        .design-content {
+          position: sticky;
+          top: calc(50% - 7.75rem);
+          grid-area: 1/1/3/2;
+          p {
+            font-size: clamp(0.9em, 1.5vw, 1.125rem);
+          }
+        }
+      }
+    }
+
     .more-projects-preview {
       row-gap: 4vh;
       column-gap: 2vw;

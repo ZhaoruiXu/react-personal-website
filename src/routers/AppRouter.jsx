@@ -101,7 +101,11 @@ function AppRouter() {
               <Route
                 path='/about'
                 element={
-                  <PageAbout aboutContent={aboutContent} isLoaded={isLoaded} />
+                  <PageAbout
+                    aboutContent={aboutContent}
+                    isLoaded={isLoaded}
+                    playLoadingAnimation={playLoadingAnimation}
+                  />
                 }
               />
               <Route

@@ -47,13 +47,13 @@ export default function AnimationObserver({ children, id }) {
 
           let translateY = 0;
           if (classes.includes("fade-in-up")) {
-            translateY = ["3rem", 0];
+            translateY = ["2.5rem", 0];
           } else if (classes.includes("fade-in-down")) {
-            translateY = ["-5rem", 0];
+            translateY = ["-2.5rem", 0];
           }
 
           // Animation Duration
-          let duration = 1000;
+          let duration = 800;
           let durationClass = classes.find(className =>
             /^animation-duration-[0-9]*$/.test(className)
           );

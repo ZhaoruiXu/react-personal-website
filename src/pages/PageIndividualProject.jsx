@@ -176,7 +176,7 @@ export default function PageIndividualProject({
                           return (
                             <div
                               key={index}
-                              className='design-image animate fade-in-up animation-delay-300'>
+                              className='design-image animate fade-in-up animation-delay-500'>
                               <img src={oneImageURL} alt={altMsg} />
                             </div>
                           );

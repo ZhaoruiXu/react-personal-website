@@ -178,7 +178,7 @@
     .more-projects-preview {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 4vw;
+      gap: 1rem;
       margin-top: 8rem;
       .more-projects-header {
         grid-area: 1/1/2/3;
@@ -236,6 +236,8 @@
       }
     }
     .more-projects-preview {
+      row-gap: 4vh;
+      column-gap: 2vw;
       .project-card {
         .project-card-wrapper {
           display: block;

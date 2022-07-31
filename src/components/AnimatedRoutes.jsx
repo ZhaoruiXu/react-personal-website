@@ -20,7 +20,7 @@ const AnimatedRoutes = ({ children, handleLoadingAnimation }) => {
       // Clear the previous setTimeout before the next one
       clearTimeout(timer);
     };
-  }, [location]);
+  }, [location, handleLoadingAnimation]);
 
   return <>{children}</>;
 };

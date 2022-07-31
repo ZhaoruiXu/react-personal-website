@@ -1,6 +1,6 @@
 // Development Components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { appTitle, api, params, params_project } from "../globals/global";
 
 // Components
@@ -63,15 +63,18 @@ function AppRouter() {
     fetchHomeContent();
   }, []);
 
-  const handleLoadingAnimation = bool => {
-    setPlayLoadingAnimation(bool);
+  const handleLoadingAnimation = useCallback(
+    bool => {
+      setPlayLoadingAnimation(bool);
 
-    if (bool === true) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  };
+      if (bool === true) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    },
+    [setPlayLoadingAnimation]
+  );
 
   return (
     <BrowserRouter>
